@@ -2,19 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
-let
-  #home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz";
-in
+{ config, pkgs, home-manager, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #(import "${home-manager}/nixos")
-      <home-manager/nixos>
-      ./jiucheng-home.nix
-      ./i3wm.nix
+      ./home.nix
+      ./desktopenv.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -48,7 +42,7 @@ in
   
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
+  #services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -65,16 +59,7 @@ in
   users.users.jiucheng = {
      isNormalUser = true;
      extraGroups = [ "wheel" ];
-  };
-  
-  #users.users.jiucheng = {
-  #  isNormalUser = true;
-  #  extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #  packages = with pkgs; [
-  #    firefox
-  #    tree
-  #  ];
-  #};
+  }; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -86,7 +71,6 @@ in
     yadm 
     tmux
     neofetch
-    home-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -111,7 +95,7 @@ in
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -119,7 +103,7 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 

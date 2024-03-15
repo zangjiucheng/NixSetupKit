@@ -53,4 +53,7 @@ dkms.conf
 
 # Ignore Mac System File
 .DS_Store
+
+# NixOS Files
 hardware-configuration.nix
+flake.lock

@@ -5,10 +5,9 @@
 { config, pkgs, home-manager, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
-      ./user/jiucheng/home.nix
-      ./desktopenv.nix
+      ./default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -23,12 +22,23 @@
   # Set your time zone.
   time.timeZone = "America/Toronto";
 
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-chinese-addons
+      fcitx5-gtk
+    ];
+};
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -36,10 +46,7 @@
   # };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  
+  # services.xserver.enable = true;  
 
   # Configure keymap in X11
   #services.xserver.layout = "us";
@@ -55,11 +62,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jiucheng = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ];
-  }; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

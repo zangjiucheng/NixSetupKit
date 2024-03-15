@@ -1,14 +1,14 @@
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jiucheng = {
+  users.users.default = {
      isNormalUser = true;
      extraGroups = [ "wheel" ];
   }; 
-  home-manager.users.jiucheng = { config, pkgs, ... }: {	
+  home-manager.users.default = { config, pkgs, ... }: {	
     programs.bash.enable = true;
      
-    home.username = "jiucheng";
-    home.homeDirectory = "/home/jiucheng";
+    home.username = "default";
+    home.homeDirectory = "/home/default";
   
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
@@ -26,7 +26,6 @@
       ./modules/git.nix
       ./modules/htop.nix
       ./modules/vscode.nix
-      ./modules/qterminal.nix
     ];
   
     # Allow unfree SoftwareV
@@ -50,17 +49,13 @@
       # # environment:
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
-      # '')
-  
+      # '') 
       firefox
       emacs
       lxqt.qterminal
       fcitx5
       xcompmgr
       vscode
-      #todoist
-      #spotify
-      #discord
     ];
   
     # Home Manager is pretty good at managing dotfiles. The primary way to manage

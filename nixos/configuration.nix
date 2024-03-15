@@ -7,7 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./home.nix
+      ./user/jiucheng/home.nix
       ./desktopenv.nix
     ];
 
@@ -71,6 +71,7 @@
     yadm 
     tmux
     neofetch
+    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -87,10 +88,10 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedUDPPorts = [    ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

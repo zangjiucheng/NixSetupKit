@@ -17,7 +17,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
@@ -29,13 +29,31 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Font Setup
+  fonts = {
+      fontDir.enable = true;
+      packages = with pkgs; [
+        noto-fonts
+        # noto-fonts-cjk-sans
+        # noto-fonts-cjk-serif
+        source-han-sans
+        source-han-serif
+        # sarasa-gothic 
+        source-code-pro
+        hack-font
+        jetbrains-mono
+      ];
+    };
+
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  #i18n.defaultLocale = "zh_CN.UTF-8"; # Change to Chinese System
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
-      fcitx5-gtk
+      fcitx5-rime
     ];
 };
 
@@ -74,6 +92,7 @@
     tmux
     neofetch
     python3
+    networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -55,7 +55,6 @@
       firefox
       emacs
       lxqt.qterminal
-      fcitx5
       xcompmgr
       vscode
       #todoist

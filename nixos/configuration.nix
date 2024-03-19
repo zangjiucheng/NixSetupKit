@@ -55,7 +55,7 @@
       fcitx5-chinese-addons
       fcitx5-rime
     ];
-};
+  };
 
   # console = {
   #   font = "Lat2-Terminus16";
@@ -92,7 +92,12 @@
     tmux
     neofetch
     python3
+    pyenv
     networkmanagerapplet
+    zfs
+    libreoffice
+    gimp
+    gnome.nautilus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

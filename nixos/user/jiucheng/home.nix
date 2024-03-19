@@ -24,9 +24,7 @@
       ./modules/i3.nix
       ./modules/vim.nix
       ./modules/git.nix
-      ./modules/htop.nix
       ./modules/vscode.nix
-      ./modules/qterminal.nix
     ];
   
     # Allow unfree SoftwareV
@@ -69,7 +67,10 @@
       # # the Nix store. Activating the configuration will then make '~/.screenrc' a
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
-  
+
+      ".config/htop/htoprc".source = dotfiles/htoprc;
+      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
+      ".background-image".source = dotfiles/background-image;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
@@ -95,7 +96,17 @@
     home.sessionVariables = {
       EDITOR = "vim";
     };
-  
+
+    xdg.mimeApps = {
+      enable = true;
+      associations.added = {
+        "inode/directory" = ["org.gnome.Nautilus.desktop"];
+      };
+      defaultApplications = {
+        "inode/directory" = ["org.gnome.Nautilus.desktop"];
+      };
+    };
+
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
     };

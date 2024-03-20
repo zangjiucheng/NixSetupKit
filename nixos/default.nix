@@ -4,5 +4,6 @@
       ./user/jiucheng/home.nix
       #./user/default/home.nix
       ./desktopenv.nix
+      ./samba.nix
     ];
 }

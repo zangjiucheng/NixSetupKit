@@ -27,7 +27,7 @@
       ./modules/vscode.nix
     ];
   
-    # Allow unfree SoftwareV
+    # Allow unfree Software
     nixpkgs.config.allowUnfree = true;
     
     # The home.packages option allows you to install Nix packages into your
@@ -72,7 +72,7 @@
 
       ".config/htop/htoprc".source = dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".background-image".source = dotfiles/background-image;
+      ".background-image".source = background-image/fire;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose

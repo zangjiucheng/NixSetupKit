@@ -55,6 +55,8 @@
       lxqt.qterminal
       xcompmgr
       vscode
+      copyq
+      flameshot
       #todoist
       #spotify
       #discord

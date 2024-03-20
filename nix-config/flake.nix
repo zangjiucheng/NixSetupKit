@@ -1,5 +1,5 @@
 {
-  description = "Jiucheng's darwin system(MacOS) and NixOS";
+  description = "Jiucheng's nix-config for MacOS and NixOS";
 
   inputs = {
     #nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
@@ -29,8 +29,17 @@
   };
 
   outputs = { self, nix-darwin, nixpkgs, home-manager, ... }@attrs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./nixos/configuration.nix
+        home-manager.nixosModules.default
+        ];
+    };
+
+    nixosConfigurations.nixos-x86 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
         ./nixos/configuration.nix

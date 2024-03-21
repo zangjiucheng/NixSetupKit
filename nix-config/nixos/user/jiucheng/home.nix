@@ -57,6 +57,7 @@
       vscode
       copyq
       flameshot
+      btop
       #todoist
       #spotify
       #discord

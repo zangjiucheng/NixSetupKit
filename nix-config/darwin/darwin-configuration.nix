@@ -13,6 +13,7 @@
       pandoc
       direnv
       nixpkgs-fmt
+      btop
     ];
 
   # Use a custom configuration.nix location.

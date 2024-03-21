@@ -7,9 +7,9 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
-       #url = github:nix-community/home-manager/release-23.11;
-       url = github:nix-community/home-manager;
-       inputs.nixpkgs.follows = "nixpkgs";
+      #url = github:nix-community/home-manager/release-23.11;
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     #nix-homebrew = {
     #  url = "github:zhaofengli-wip/nix-homebrew";
@@ -35,7 +35,7 @@
       modules = [
         ./nixos/configuration.nix
         home-manager.nixosModules.default
-        ];
+      ];
     };
 
     nixosConfigurations.nixos-x86 = nixpkgs.lib.nixosSystem {
@@ -44,9 +44,9 @@
       modules = [
         ./nixos/configuration.nix
         home-manager.nixosModules.default
-        ];
+      ];
     };
-    
+
     darwinConfigurations.macos = nix-darwin.lib.darwinSystem {
       modules = [ ./darwin/darwin-configuration.nix ];
     };

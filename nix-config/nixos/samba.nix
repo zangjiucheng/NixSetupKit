@@ -4,7 +4,7 @@
 # smbpasswd -a <user> ; add another user
 {
   systemd.tmpfiles.rules = [
-        "d /share 2777 root root -"
+    "d /share 2777 root root -"
   ];
   services.samba-wsdd = {
     # make shares visible for Windows clients
@@ -40,7 +40,7 @@
     '';
     shares = {
       NixOS-Share = {
-	path = "/share";
+        path = "/share";
         browseable = "yes";
         writeable = "yes";
         public = "yes";
@@ -48,18 +48,18 @@
         "directory mask" = "2777";
         comment = "Samba Server NixOS";
       };
-      
-     # Home-Server = {
-     #   path = "/mnt/primordium/data";
-     #   browseable = "yes";
-     #   writeable = "yes";
-     #   "guest ok" = "no";
-     #   public = "no";
-     #   "create mask" = "0644";
-     #   "directory mask" = "2777";
-     #   "force user" = "dinghong";
-     #   comment = "Samba Server NixOS";
-     # };
+
+      # Home-Server = {
+      #   path = "/mnt/primordium/data";
+      #   browseable = "yes";
+      #   writeable = "yes";
+      #   "guest ok" = "no";
+      #   public = "no";
+      #   "create mask" = "0644";
+      #   "directory mask" = "2777";
+      #   "force user" = "dinghong";
+      #   comment = "Samba Server NixOS";
+      # };
     };
   };
 }

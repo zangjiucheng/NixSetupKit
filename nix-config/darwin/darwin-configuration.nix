@@ -16,6 +16,7 @@
       btop
       ffmpeg_5
       cmake
+      wget
     ];
 
   # Use a custom configuration.nix location.

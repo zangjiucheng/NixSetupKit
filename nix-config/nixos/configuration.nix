@@ -5,8 +5,8 @@
 { config, pkgs, home-manager, ... }:
 {
   imports =
-    [ 
-      ./hardware-configuration.nix
+    [
+      ../hardware-configuration.nix
       ./default.nix
     ];
 
@@ -17,7 +17,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
@@ -31,19 +31,19 @@
 
   # Font Setup
   fonts = {
-      fontDir.enable = true;
-      packages = with pkgs; [
-        noto-fonts
-        # noto-fonts-cjk-sans
-        # noto-fonts-cjk-serif
-        source-han-sans
-        source-han-serif
-        # sarasa-gothic 
-        source-code-pro
-        hack-font
-        jetbrains-mono
-      ];
-    };
+    fontDir.enable = true;
+    packages = with pkgs; [
+      noto-fonts
+      # noto-fonts-cjk-sans
+      # noto-fonts-cjk-serif
+      source-han-sans
+      source-han-serif
+      # sarasa-gothic 
+      source-code-pro
+      hack-font
+      jetbrains-mono
+    ];
+  };
 
 
   # Select internationalisation properties.
@@ -88,7 +88,7 @@
     wget
     git
     htop
-    yadm 
+    yadm
     tmux
     neofetch
     python3
@@ -117,7 +117,7 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.firewall.allowedUDPPorts = [    ];
+  networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 

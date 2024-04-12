@@ -14,6 +14,11 @@
       direnv
       nixpkgs-fmt
       btop
+      ffmpeg_5
+      cmake
+      wget
+      ctags
+      proselint
     ];
 
   # Use a custom configuration.nix location.

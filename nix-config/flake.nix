@@ -43,7 +43,7 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./nixos-x86/configuration.nix
+        ./nixos/configuration.nix
         home-manager.nixosModules.default
       ];
     };

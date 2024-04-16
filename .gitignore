@@ -57,3 +57,5 @@ dkms.conf
 # NixOS Files
 hardware-configuration.nix
 flake.lock
+.iso
+nix-config/result

@@ -19,6 +19,7 @@
       wget
       ctags
       proselint
+      pypy3
     ];
 
   # Use a custom configuration.nix location.

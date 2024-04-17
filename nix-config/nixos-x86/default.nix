@@ -1,7 +1,7 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
-      #../user-x86/jiucheng/home.nix
+	../user/jiucheng/home.nix
+	../user/jiucheng/x86-addon.nix
     ];
 }

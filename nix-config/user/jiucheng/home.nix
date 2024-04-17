@@ -25,6 +25,7 @@
       ./modules/vim.nix
       ./modules/git.nix
       ./modules/vscode.nix
+      ./x86-addon.nix
     ];
 
     # Allow unfree Software

@@ -34,7 +34,7 @@
       system = "aarch64-linux";
       specialArgs = attrs;
       modules = [
-        ./nixos-arm/configuration.nix
+        ./modules/nixos-aarch64/configuration.nix
         home-manager.nixosModules.default
       ];
     };
@@ -43,13 +43,13 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./nixos-x86/configuration.nix
+        .modules/nixos-x86/configuration.nix
         home-manager.nixosModules.default
       ];
     };
 
     darwinConfigurations.macos = nix-darwin.lib.darwinSystem {
-      modules = [ ./darwin/darwin-configuration.nix ];
+      modules = [ ./modules/darwin/darwin-configuration.nix ];
     };
 
     nixosConfigurations.isoBuild = nixos.lib.nixosSystem {

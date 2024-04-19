@@ -1,7 +1,7 @@
 {
   programs.git = {
     enable = true;
-    #userName  = "...";
-    #userEmail = "...@xxx.com";
+    userName = "CHANGE YOUR NAME";
+    userEmail = "EMAIL ADDRESS";
   };
 }

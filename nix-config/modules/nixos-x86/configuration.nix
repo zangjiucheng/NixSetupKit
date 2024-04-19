@@ -6,6 +6,10 @@
 {
   imports =
     [
-      ../nixos/configuration.nix
+      ../shared/configuration.nix
+      ../../users/userList.nix
     ];
+
+    # x86-nixos Software
+    environment.systemPackages = pkgs.callPackage ./packages.nix {};
 }

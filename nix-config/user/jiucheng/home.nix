@@ -75,7 +75,7 @@
 
       ".config/htop/htoprc".source = dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".background-image".source = background-image/cityGirl;
+      ".background-image".source = background-image/cityGirl.jpg;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose

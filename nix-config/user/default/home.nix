@@ -1,14 +1,14 @@
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.default = {
+  users.users.jiucheng = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
-  home-manager.users.default = { config, pkgs, ... }: {
+  home-manager.users.jiucheng = { config, pkgs, ... }: {
     programs.bash.enable = true;
 
-    home.username = "default";
-    home.homeDirectory = "/home/default";
+    home.username = "jiucheng";
+    home.homeDirectory = "/home/jiucheng";
 
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
@@ -23,12 +23,12 @@
     imports = [
       ./modules/i3.nix
       ./modules/vim.nix
-      ./modules/git.nix
-      ./modules/htop.nix
+      # ./modules/git.nix
       ./modules/vscode.nix
+      ./x86-addon.nix
     ];
 
-    # Allow unfree SoftwareV
+    # Allow unfree Software
     nixpkgs.config.allowUnfree = true;
 
     # The home.packages option allows you to install Nix packages into your
@@ -49,13 +49,20 @@
       # # environment:
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
-      # '') 
+      # '')
+
       firefox
       emacs
       lxqt.qterminal
-      fcitx5
       xcompmgr
       vscode
+      copyq
+      flameshot
+      btop
+      gdb
+      #todoist
+      #spotify
+      #discord
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -66,6 +73,9 @@
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
+      ".config/htop/htoprc".source = dotfiles/htoprc;
+      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
+      ".background-image".source = background-image/cityGirl.jpg;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
@@ -90,6 +100,16 @@
     #
     home.sessionVariables = {
       EDITOR = "vim";
+    };
+
+    xdg.mimeApps = {
+      enable = true;
+      associations.added = {
+        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+      };
+      defaultApplications = {
+        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+      };
     };
 
     # Let Home Manager install and manage itself.

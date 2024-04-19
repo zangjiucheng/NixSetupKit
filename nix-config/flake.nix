@@ -2,8 +2,8 @@
   description = "Jiucheng's nix-config for MacOS and NixOS";
 
   inputs = {
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos.url = "nixpkgs/23.11-beta";

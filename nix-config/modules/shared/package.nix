@@ -17,4 +17,5 @@ with pkgs; [
     gnome.nautilus
     samba
     zfs
-  ];
+    pypy3
+]

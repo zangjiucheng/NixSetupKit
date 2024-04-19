@@ -59,3 +59,4 @@ hardware-configuration.nix
 flake.lock
 .iso
 nix-config/result
+update.sh

@@ -32,11 +32,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-#exec --no-startup-id fcitx -d
-exec --no-startup-id copyq 
+exec --no-startup-id nm-applet &
+exec --no-startup-id copyq &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id fcitx5 &
+exec_always --no-startup-id bash ~/.wallpapper.sh
 #exec --no-startup-id blueman-manager &
 #exec_always --no-startup-id compton
 #exec_always --no-startup-id picom
@@ -54,6 +54,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec qterminal
+bindsym $mod+Shift+Return exec warp-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -129,6 +130,13 @@ set $ws8 "8: Discord"
 set $ws9 "9: Email"
 set $ws10 "10"
 
+# Set Default app windows
+for_window [class="Spotify"] move to workspace $ws3
+for_window [class="Code"] move to workspace $ws4
+# for_window [class="org.gnome.Nautilus"] move to workspace $ws5
+for_window [class="Mailspring"] move to workspace $ws9
+for_window [class="discord"] move to workspace $ws8
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -202,6 +210,7 @@ bar {
 bindsym $mod+Shift+p move workspace to output right
 bindsym $mod+Shift+o move workspace to output left
 bindsym $mod+Shift+g exec firefox
+#bindsym $mod+Shift+g exec firefox
 bindsym $mod+Shift+a exec code
 bindsym $mod+F1 exec amixer set Master toggle && amixer set Speaker unmute
 bindsym $mod+F2 exec amixer set Master 2%-
@@ -210,15 +219,26 @@ bindsym $mod+F4 exec amixer set Capture toggle
 bindsym $mod+F5 exec decrease_brightness
 bindsym $mod+F6 exec increase_brightness
 #bindsym $mod+F8 exec sudo ifconfig wlp5s0 down
+bindsym $mod+Shift+v exec sudo vmplayer /root/vmware/Windows\ 10\ x64/Windows\ 10\ x64.vmx -X
 bindsym $mod+m exec i3-sensible-terminal -e cmatrix
 bindsym $mod+Shift+h exec i3-sensible-terminal -e ranger
+bindsym $mod+t exec sh /home/jiucheng/.timesync_now.sh
+bindsym $mod+x exec sh /home/jiucheng/.monitor-reset.sh
 bindsym $mod+Shift+s exec spotify 
 bindsym $mod+o exec i3-sensible-terminal -e alsamixer
+bindsym $mod+Shift+n exec notion-snap-reborn
+bindsym $mod+Shift+d exec discord
 bindsym $mod+b exec lock
 bindsym $mod+p exec sh /home/jiucheng/.sleep.sh
+#bindsym $mod+Shift+z exec libreoffice
+#bindsym --release $mod+x exec --no-startup-id import /home/jiucheng/ss.png
 bindsym Print exec flameshot gui
+bindsym $mod+Shift+t exec texstudio
+bindsym $mod+Shift+b exec /opt/tor-browser/Browser/start-tor-browser
+bindsym $mod+Shift+x exec pycharm.sh
 bindsym $mod+Shift+m exec mailspring --password-store="gnome-libsecret" %U
 bindsym $mod+Shift+u exec xdg-open ./ 
+bindsym $mod+n exec sh ~/.remoteWindows.sh
 
 #bindsym $mod+Shift+m exec mailspring
 #bindsym $mod+z exec zeal

@@ -80,27 +80,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    htop
-    yadm
-    tmux
-    neofetch
-    python3
-    pyenv
-    networkmanagerapplet
-    zfs
-    libreoffice
-    gimp
-    gnome.nautilus
-    samba
-    zfs
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

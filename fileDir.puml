@@ -1,0 +1,127 @@
+@startuml
+left to right direction
+
+folder "nix-config"
+
+folder users 
+
+folder jiucheng
+folder default
+
+folder shared
+
+file "flake.nix"
+file "hardware-configuration.nix"
+
+file "darwin-configuration.nix"
+file systemSetting.nix
+
+folder "nixos-x86"
+folder "nixos-aarch64"
+folder darwin 
+
+folder modules as modulesSystem
+
+file default.nix
+file desktopenv.nix
+file zfs.nix
+file samba.nix
+
+file package.nix as package_x86
+file package.nix as package_shared
+file package.nix as package_aarch64
+
+file configuration.nix as configuration_x86
+file configuration.nix as configuration_aarch64
+file configuration.nix as configuration_shared
+
+file userList.nix 
+
+package jiuchengConfig{
+    file home.nix as homeJiucheng
+    folder modules as modulesJiucheng
+    folder dotfiles as dotfilesJiucheng
+    folder "x86-addon" as x86AddonJiucheng
+    folder "background-image" as backgroundImageJiucheng
+}
+
+package defaultConfig{
+    file home.nix as homeDefault
+    folder modules as modulesDefault
+    folder dotfiles as dotfilesDefault
+    folder "x86-addon" as x86AddonDefault
+    folder "background-image" as backgroundImageDefault
+}
+
+configuration_x86 .. shared
+configuration_aarch64 .. shared
+
+
+' file home.nix
+' folder modules as modulesJiucheng
+' folder dotfiles as dotfilesJiucheng
+' folder "x86-addon"
+
+"nix-config" --> "flake.nix"
+"nix-config" --> "hardware-configuration.nix"
+
+"nixos-x86" --> package_x86
+"nixos-x86" --> configuration_x86
+
+"nixos-aarch64" --> package_aarch64
+"nixos-aarch64" --> configuration_aarch64
+
+"nix-config" --> modulesSystem
+"nix-config" --> users
+
+users --> jiucheng
+users --> default
+users --> userList.nix
+
+modulesSystem --> shared
+modulesSystem --> "nixos-x86"
+modulesSystem --> "nixos-aarch64"
+modulesSystem --> darwin
+
+shared --> package_shared
+shared --> configuration_shared
+
+darwin --> "darwin-configuration.nix"
+darwin --> systemSetting.nix
+
+shared --> default.nix
+shared --> desktopenv.nix
+shared --> zfs.nix
+shared --> samba.nix
+
+' jiucheng --> "background-image" 
+' jiucheng --> modulesJiucheng
+' jiucheng --> dotfilesJiucheng
+' jiucheng --> home.nix
+' jiucheng --> "x86-addon"
+jiucheng --> jiuchengConfig
+default --> defaultConfig
+
+flake.nix .. "nixos-x86"
+flake.nix .. "nixos-aarch64"
+flake.nix .. darwin
+
+' file artifact2
+' file artifact3
+' file artifact4
+' file artifact5
+' file artifact6
+' file artifact7
+' file artifact8
+' file artifact9
+' file artifact10
+' artifact1 --> artifact2
+' artifact1 --* artifact3
+' artifact1 --o artifact4
+' artifact1 --+ artifact5
+' artifact1 --# artifact6
+' artifact1 -->> artifact7
+' artifact1 --0 artifact8
+' artifact1 --^ artifact9
+' artifact1 --(0 artifact10
+@enduml

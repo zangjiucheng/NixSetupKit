@@ -11,5 +11,5 @@
     ];
 
     # x86-nixos Software
-    environment.systemPackages = pkgs.callPackage ./packages.nix {};
+    environment.systemPackages = pkgs.callPackage ./package.nix {};
 }

@@ -18,4 +18,6 @@ with pkgs; [
     samba
     zfs
     pypy3
+    duf
+    font-awesome
 ]

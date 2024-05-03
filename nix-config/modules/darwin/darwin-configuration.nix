@@ -24,6 +24,8 @@
       ctags
       proselint
       pypy3
+      nmap
+      metasploit
     ];
 
   # Use a custom configuration.nix location.

@@ -7,9 +7,11 @@
 	    orientation = "right";
 	    persistent-apps = [
 		"/System/Applications/Mail.app"
+		"/Applications/NetNewsWire.app"
 		"/System/Applications/Calendar.app"
 		"/Applications/Visual Studio Code.app"
-		"/nix/store/6194a3v146s47gnqczk4azk6mfkwhls6-emacs-29.2/Applications/Emacs.app"
+		"/Applications/Arc.app"
+		"/Applications/Spotify.app"
 		"/Applications/Signal.app"
   		"/System/Applications/Utilities/Disk Utility.app"
 	    ];

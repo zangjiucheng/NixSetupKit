@@ -12,7 +12,7 @@
       emacs
       tree
       htop
-      neofetch
+      fastfetch
       pyenv
       pandoc
       direnv

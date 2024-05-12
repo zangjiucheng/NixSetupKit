@@ -26,6 +26,8 @@
       pypy3
       nmap
       metasploit
+      zulu
+      graphviz
     ];
 
   # Use a custom configuration.nix location.

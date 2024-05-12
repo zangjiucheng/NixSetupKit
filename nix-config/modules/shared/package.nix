@@ -7,7 +7,7 @@ with pkgs; [
     htop
     yadm
     tmux
-    neofetch
+    fastfetch
     python3
     pyenv
     networkmanagerapplet
@@ -18,4 +18,6 @@ with pkgs; [
     samba
     zfs
     pypy3
+    duf
+    font-awesome
 ]

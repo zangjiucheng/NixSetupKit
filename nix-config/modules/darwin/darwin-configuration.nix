@@ -12,7 +12,7 @@
       emacs
       tree
       htop
-      neofetch
+      fastfetch
       pyenv
       pandoc
       direnv
@@ -24,6 +24,10 @@
       ctags
       proselint
       pypy3
+      nmap
+      metasploit
+      zulu
+      graphviz
     ];
 
   # Use a custom configuration.nix location.

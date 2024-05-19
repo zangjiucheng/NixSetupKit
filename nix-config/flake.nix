@@ -8,8 +8,8 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos.url = "nixpkgs/23.11-beta";
     home-manager = {
-      url = github:nix-community/home-manager/release-23.11;
-      #url = github:nix-community/home-manager;
+      #url = github:nix-community/home-manager/release-23.11;
+      url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #nix-homebrew = {
@@ -43,7 +43,7 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./modules/nixos-x86/configuration.nix
+        .modules/nixos-x86/configuration.nix
         home-manager.nixosModules.default
       ];
     };

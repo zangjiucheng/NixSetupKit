@@ -28,6 +28,11 @@
       metasploit
       zulu
       graphviz
+      octave
+      nodejs_18
+      bat
+      zsh
+      gitui
     ];
 
   # Use a custom configuration.nix location.

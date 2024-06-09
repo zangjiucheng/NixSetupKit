@@ -25,6 +25,7 @@
       bat
       zsh
       gitui
+      graphviz
     ];
 
   # Use a custom configuration.nix location.

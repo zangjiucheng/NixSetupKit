@@ -3,33 +3,25 @@
 {
   imports =
   [
-    ./systemSetting.nix
+    ../../user-darwin/userList.nix
   ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs;
     [
-      emacs
       tree
       htop
-      fastfetch
       pyenv
+      fastfetch
       pandoc
-      direnv
       nixpkgs-fmt
-      btop
       ffmpeg_5
       cmake
       wget
       ctags
       proselint
-      pypy3
-      nmap
-      metasploit
-      zulu
-      graphviz
-      octave
-      nodejs_18
       bat
       zsh
       gitui

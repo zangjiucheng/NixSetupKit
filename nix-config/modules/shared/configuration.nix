@@ -6,7 +6,7 @@
 {
   imports =
     [
-      ../hardware-configuration.nix
+      ../../hardware-configuration.nix
       ./default.nix
     ];
 
@@ -82,6 +82,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

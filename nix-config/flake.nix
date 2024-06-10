@@ -49,7 +49,10 @@
     };
 
     darwinConfigurations.macos = nix-darwin.lib.darwinSystem {
-      modules = [ ./modules/darwin/darwin-configuration.nix ];
+      modules = [ 
+	      ./modules/darwin/darwin-configuration.nix 
+        home-manager.darwinModules.default
+      ];
     };
 
     nixosConfigurations.isoBuild = nixos.lib.nixosSystem {

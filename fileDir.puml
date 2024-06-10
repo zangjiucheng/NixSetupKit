@@ -3,9 +3,11 @@ left to right direction
 
 folder "nix-config"
 
-folder users 
+folder user
+folder "user-darwin"
 
-folder jiucheng
+folder jiucheng as jiucheng_nix
+folder jiucheng as jiucheng_darwin
 folder default
 
 folder shared
@@ -14,7 +16,6 @@ file "flake.nix"
 file "hardware-configuration.nix"
 
 file "darwin-configuration.nix"
-file systemSetting.nix
 
 folder "nixos-x86"
 folder "nixos-aarch64"
@@ -35,7 +36,8 @@ file configuration.nix as configuration_x86
 file configuration.nix as configuration_aarch64
 file configuration.nix as configuration_shared
 
-file userList.nix 
+file userList.nix as userList_nix
+file userList.nix as userList_darwin
 
 package jiuchengConfig{
     file home.nix as homeJiucheng
@@ -43,6 +45,13 @@ package jiuchengConfig{
     folder dotfiles as dotfilesJiucheng
     folder "x86-addon" as x86AddonJiucheng
     folder "background-image" as backgroundImageJiucheng
+}
+
+package jiuchengConfigDarwin{
+    file home.nix as homeJiuchengDarwin
+    file systemSetting.nix
+    folder modules as modulesJiuchengDarwin
+    folder dotfiles as dotfilesJiuchengDarwin
 }
 
 package defaultConfig{
@@ -72,11 +81,15 @@ configuration_aarch64 .. shared
 "nixos-aarch64" --> configuration_aarch64
 
 "nix-config" --> modulesSystem
-"nix-config" --> users
+"nix-config" --> user
+"nix-config" --> "user-darwin"
 
-users --> jiucheng
-users --> default
-users --> userList.nix
+user --> jiucheng_nix
+user --> default
+user --> userList_nix
+
+"user-darwin" --> jiucheng_darwin
+"user-darwin" --> userList_darwin
 
 modulesSystem --> shared
 modulesSystem --> "nixos-x86"
@@ -87,7 +100,7 @@ shared --> package_shared
 shared --> configuration_shared
 
 darwin --> "darwin-configuration.nix"
-darwin --> systemSetting.nix
+' darwin --> systemSetting.nix
 
 shared --> default.nix
 shared --> desktopenv.nix
@@ -99,7 +112,8 @@ shared --> samba.nix
 ' jiucheng --> dotfilesJiucheng
 ' jiucheng --> home.nix
 ' jiucheng --> "x86-addon"
-jiucheng --> jiuchengConfig
+jiucheng_nix --> jiuchengConfig
+jiucheng_darwin --> jiuchengConfigDarwin
 default --> defaultConfig
 
 flake.nix .. "nixos-x86"

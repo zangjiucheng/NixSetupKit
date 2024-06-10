@@ -13,7 +13,7 @@
 		"/Applications/Arc.app"
 		"/Applications/Spotify.app"
 		"/Applications/Signal.app"
-  	"/System/Applications/Utilities/Disk Utility.app"
+  		"/System/Applications/Utilities/Disk Utility.app"
 	    ];
 	};
 	#finder.AppleShowAllExtensions = true;

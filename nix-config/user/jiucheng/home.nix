@@ -22,7 +22,6 @@
 
     imports = [
       ./modules/i3.nix
-      ./modules/i3status.nix
       ./modules/vim.nix
       ./modules/git.nix
       ./modules/vscode.nix

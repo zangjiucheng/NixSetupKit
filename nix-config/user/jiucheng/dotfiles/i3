@@ -34,9 +34,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet &
 exec --no-startup-id copyq &
-#exec --no-startup-id albert &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id fcitx5 &
+exec_always --no-startup-id bash ~/.wallpapper.sh
 #exec --no-startup-id blueman-manager &
 #exec_always --no-startup-id compton
 #exec_always --no-startup-id picom
@@ -119,15 +119,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:  Terminal"
-set $ws2 "2:  Web Browser"
-set $ws3 "3:  Spotify"
-set $ws4 "4:  Codding"
-set $ws5 "5:  File Browser"
+set $ws1 "1: Terminal"
+set $ws2 "2: Web Browser"
+set $ws3 "3: Spotify"
+set $ws4 "4: Codding"
+set $ws5 "5: File Browser"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8:  Discord"
-set $ws9 "9: 📧 Email"
+set $ws8 "8: Discord"
+set $ws9 "9: Email"
 set $ws10 "10"
 
 # Set Default app windows
@@ -209,8 +209,8 @@ bar {
 
 bindsym $mod+Shift+p move workspace to output right
 bindsym $mod+Shift+o move workspace to output left
-#bindsym $mod+Shift+g exec google-chrome
 bindsym $mod+Shift+g exec firefox
+#bindsym $mod+Shift+g exec firefox
 bindsym $mod+Shift+a exec code
 bindsym $mod+F1 exec amixer set Master toggle && amixer set Speaker unmute
 bindsym $mod+F2 exec amixer set Master 2%-
@@ -233,7 +233,7 @@ bindsym $mod+p exec sh /home/jiucheng/.sleep.sh
 #bindsym $mod+Shift+z exec libreoffice
 #bindsym --release $mod+x exec --no-startup-id import /home/jiucheng/ss.png
 bindsym Print exec flameshot gui
-bindsym $mod+Shift+t exec todoist
+bindsym $mod+Shift+t exec texstudio
 bindsym $mod+Shift+b exec /opt/tor-browser/Browser/start-tor-browser
 bindsym $mod+Shift+x exec pycharm.sh
 bindsym $mod+Shift+m exec mailspring --password-store="gnome-libsecret" %U

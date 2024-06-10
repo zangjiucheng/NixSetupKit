@@ -83,6 +83,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
+  # Allow unfree Software
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are

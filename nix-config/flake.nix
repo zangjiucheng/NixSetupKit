@@ -8,8 +8,8 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos.url = "nixpkgs/23.11-beta";
     home-manager = {
-      #url = github:nix-community/home-manager/release-23.11;
-      url = github:nix-community/home-manager;
+      url = github:nix-community/home-manager/release-23.11;
+      #url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #nix-homebrew = {

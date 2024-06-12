@@ -7,7 +7,7 @@
   imports =
     [
       ../shared/configuration.nix
-      ../../user/userList.nix
+      ../../user/user-nixos/userList.nix
     ];
 
     environment.systemPackages = pkgs.callPackage ./packages.nix {};

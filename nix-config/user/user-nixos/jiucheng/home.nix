@@ -1,3 +1,6 @@
+let 
+  share_folder = "../../user-share";
+in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jiucheng = {
@@ -21,9 +24,9 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
+      ./${share_folder}/jiucheng/modules/git.nix
       ./modules/i3.nix
       ./modules/vim.nix
-      ./modules/git.nix
       ./modules/vscode.nix
       ./x86-addon.nix
     ];
@@ -73,9 +76,10 @@
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
-      ".config/htop/htoprc".source = dotfiles/htoprc;
+      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".background-image".source = background-image/cityGirl.jpg;
+      ".background-image".source = ./${share_folder}/background-image/cityGirl.jpg;
+      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose

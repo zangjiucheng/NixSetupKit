@@ -1,0 +1,66 @@
+# i3blocks configuration
+
+# Global properties
+separator_block_width=15
+markup=none
+
+#[ipv6]
+#command=ip -6 addr show dev wlp5s0 | grep -o 'inet6 [^ ]*' | awk '{print $2}'
+#interval=30
+#label=IPv6:
+#color=#44FF00
+
+[wireless]
+command=iw dev wlp5s0 link | grep 'SSID\|signal' | awk '{printf "%s %s\n", $1, $2}' | tr '\n' ' ' | awk '{print $1" "$2" ("$4")"}'
+interval=5
+label=W:
+color=#44FF00
+
+[ethernet]
+command=ifconfig wlp5s0 | grep "inet " | awk '{print $2}' || echo "down"
+interval=5
+label=E:
+color=#44FF00
+
+[battery]
+command=$HOME/bin/battery_status.sh
+interval=30
+label=Battery:
+color=#FFD700
+
+[power_supply_wattage]
+command=$HOME/bin/power_supply_wattage.sh
+interval=5
+label=Power:
+color=#FF8C00
+
+[cpu_temperature]
+command=sensors | grep 'Package id 0:' | awk '{print $4}'
+interval=5
+label=CPU T:
+color=#FF6347
+
+[disk]
+command=df -h / | grep '/' | awk '{print $4}'
+interval=60
+label=Disk:
+color=#8A2BE2
+
+[memory]
+command=free -h | grep Mem | awk '{print $7}'
+interval=30
+label=Memory:
+color=#00FA9A
+
+[volume]
+command=amixer get Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'
+interval=1
+label=Volume:
+color=#FF69B4
+
+[tztime]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+label=Date:
+color=#FFFFFF
+

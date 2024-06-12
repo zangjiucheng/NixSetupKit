@@ -2,6 +2,7 @@
 
 let
   user = "jiucheng";
+  share_folder = "../../user-share";
 in
 {
   imports = [
@@ -21,7 +22,7 @@ in
     users.${user} = { pkgs, config, lib, ... }:{
       imports = [
         ./modules/vim.nix
-        ./modules/git.nix
+        ./${share_folder}/${user}/modules/git.nix
       ];
 
       home = {
@@ -45,8 +46,8 @@ in
 
         file = {
           ".zshrc".source = dotfiles/zshrc;
-          ".ssh/config".source = dotfiles/ssh_config;
-          ".config/htop/htoprc".source = dotfiles/htoprc;
+          ".ssh/config".source =  ./${share_folder}/${user}/dotfiles/ssh_config;
+          ".config/htop/htoprc".source = ./${share_folder}/${user}/dotfiles/htoprc;
         };
 
         stateVersion = "23.11";

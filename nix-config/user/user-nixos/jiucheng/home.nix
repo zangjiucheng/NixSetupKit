@@ -1,3 +1,7 @@
+let 
+  share_folder = "../../user-share";
+  homeDir = builtins.getEnv "HOME";
+in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jiucheng = {
@@ -21,9 +25,9 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
+      ./${share_folder}/jiucheng/modules/git.nix
       ./modules/i3.nix
       ./modules/vim.nix
-      ./modules/git.nix
       ./modules/vscode.nix
       ./x86-addon.nix
     ];
@@ -60,6 +64,7 @@
       flameshot
       btop
       gdb
+      i3blocks
       #todoist
       #spotify
       #discord
@@ -73,15 +78,22 @@
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
-      ".config/htop/htoprc".source = dotfiles/htoprc;
+      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".background-image".source = background-image/cityGirl.jpg;
+      ".config/i3blocks/config".source = dotfiles/i3blocks;
+      ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
+      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=36§00000
       # '';
+      "bin" = {
+        source = ./script;
+        recursive = true;
+      };
     };
+
 
     # Home Manager can also manage your environment variables through
     # 'home.sessionVariables'. If you don't want to manage your shell through Home

@@ -18,4 +18,5 @@ with pkgs; [
     samba
     zfs
     font-awesome
+    gitui
 ]

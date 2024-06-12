@@ -7,7 +7,7 @@
   imports =
     [
       ../shared/configuration.nix
-      ../../user/userList.nix
+      ../../user/user-nixos/userList.nix
     ];
 
     # x86-nixos Software

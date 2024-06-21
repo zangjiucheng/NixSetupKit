@@ -26,6 +26,8 @@
       zsh
       gitui
       graphviz
+      pipx
+      vscode
     ];
 
   # Use a custom configuration.nix location.

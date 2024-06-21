@@ -2,11 +2,11 @@
   description = "Jiucheng's nix-config for MacOS and NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nixos.url = "nixpkgs/23.11-beta";
+    nixos.url = "nixpkgs/24.05-beta";
     home-manager = {
       url = github:nix-community/home-manager/release-23.11;
       #url = github:nix-community/home-manager;

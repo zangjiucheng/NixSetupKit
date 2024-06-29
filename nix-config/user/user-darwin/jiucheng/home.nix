@@ -22,6 +22,7 @@ in
     users.${user} = { pkgs, config, lib, ... }:{
       imports = [
         ./modules/vim.nix
+	#./modules/nvim.nix
         ./${share_folder}/${user}/modules/git.nix
       ];
 

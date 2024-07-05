@@ -28,6 +28,7 @@
       graphviz
       pipx
       vscode
+      neovim
     ];
 
   # Use a custom configuration.nix location.

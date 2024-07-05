@@ -185,7 +185,7 @@ eval "$(pyenv virtualenv-init -)"
 # <<< End Python Environment
 
 # >>> VIM STUFF
-alias vim="vim -X"
+alias vim="nvim -X"
 bindkey '\e' vi-cmd-mode
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
  export KEYTIMEOUT=8
@@ -258,3 +258,4 @@ export NVM_DIR="$HOME/.nvm"
 # >>> Rust Setup
 . "$HOME/.cargo/env"
 # <<< Rust End
+

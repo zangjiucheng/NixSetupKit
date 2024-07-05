@@ -21,7 +21,8 @@ in
     useGlobalPkgs = true;
     users.${user} = { pkgs, config, lib, ... }:{
       imports = [
-        ./modules/vim.nix
+        #./modules/vim.nix
+	#./modules/nvim.nix
         ./${share_folder}/${user}/modules/git.nix
       ];
 
@@ -42,6 +43,7 @@ in
                         bat
                         zsh
                         gitui
+			                  rogue
         ];
 
         file = {

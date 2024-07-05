@@ -31,7 +31,7 @@ color=#FFD700
 [power_supply_wattage]
 command=$HOME/bin/power_supply_wattage.sh
 interval=5
-label=Power:
+label=Power: 
 color=#FF8C00
 
 [cpu_temperature]
@@ -61,6 +61,6 @@ color=#FF69B4
 [tztime]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
-label=Date:
+label=Date: 
 color=#FFFFFF
 

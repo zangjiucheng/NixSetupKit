@@ -1,12 +1,17 @@
+{ pkgs, ...}:
 let 
   share_folder = "../../user-share";
   homeDir = builtins.getEnv "HOME";
 in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  
+  programs.zsh.enable = true;
+
   users.users.jiucheng = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    shell = pkgs.zsh;
   };
   home-manager.users.jiucheng = { config, pkgs, ... }: {
     programs.bash.enable = true;
@@ -26,8 +31,8 @@ in
 
     imports = [
       ./${share_folder}/jiucheng/modules/git.nix
+      ./${share_folder}/jiucheng/modules/zsh.nix
       ./modules/i3.nix
-      ./modules/vim.nix
       ./modules/vscode.nix
       ./x86-addon.nix
     ];
@@ -54,7 +59,6 @@ in
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-
       firefox
       emacs
       lxqt.qterminal
@@ -65,9 +69,6 @@ in
       btop
       gdb
       i3blocks
-      #todoist
-      #spotify
-      #discord
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -111,7 +112,9 @@ in
     #  /etc/profiles/per-user/jiucheng/etc/profile.d/hm-session-vars.sh
     #
     home.sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
+      BROWSER = "firefox";
+      TERMINAL = "zsh";
     };
 
     xdg.mimeApps = {

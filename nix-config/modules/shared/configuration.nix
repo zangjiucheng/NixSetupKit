@@ -34,6 +34,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       noto-fonts
+      nerdfonts
       # noto-fonts-cjk-sans
       # noto-fonts-cjk-serif
       source-han-sans

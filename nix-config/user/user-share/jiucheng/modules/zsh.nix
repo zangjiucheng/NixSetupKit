@@ -9,6 +9,7 @@
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch --flake .#nixos";
+      clean = "sudo nix-collect-garbage -d";
       vim = "nvim";
       neofetch = "fastfetch";
     };

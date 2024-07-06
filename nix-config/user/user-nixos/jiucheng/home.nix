@@ -60,7 +60,6 @@ in
       #   echo "Hello, ${config.home.username}!"
       # '')
       firefox
-      emacs
       lxqt.qterminal
       xcompmgr
       vscode

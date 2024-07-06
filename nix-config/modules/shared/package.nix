@@ -23,4 +23,5 @@ with pkgs; [
     nodejs_22
     zsh
     thefuck
+    fzf
 ]

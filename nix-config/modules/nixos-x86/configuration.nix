@@ -8,12 +8,14 @@
     [
       ../shared/configuration.nix
       ../../user/user-nixos/userList.nix
+      ./zfs.nix
     ];
 
     # x86-nixos Software
     environment.systemPackages = pkgs.callPackage ./package.nix {};
 
-
+    # Use Latest Support kernelPackages for ZFS
+    boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
     services.tlp = {
           enable = true;

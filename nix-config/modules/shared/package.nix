@@ -24,4 +24,9 @@ with pkgs; [
     zsh
     thefuck
     fzf
+    bat
+    graphviz
+    pipx
+    freerdp3
+    eza
 ]

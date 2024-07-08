@@ -78,16 +78,18 @@ in
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
-      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
-      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".config/i3blocks/config".source = dotfiles/i3blocks;
-      ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
-      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=36§00000
       # '';
+      
+      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
+      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
+      ".config/i3blocks/config".source = dotfiles/i3blocks;
+      # ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
+      ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
+      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       "bin" = {
         source = ./script;
         recursive = true;

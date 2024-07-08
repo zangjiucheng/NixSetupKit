@@ -186,14 +186,13 @@ eval "$(pyenv virtualenv-init -)"
 
 # >>> VIM STUFF
 alias vim="nvim -X"
-bindkey '\e' vi-cmd-mode
-# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
- export KEYTIMEOUT=8
- function zle-line-init zle-keymap-select {
+bindkey '\e' vi-cmd-mode # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=8
+function zle-line-init zle-keymap-select {
    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
    RPS2=$RPS1
    zle reset-prompt
- }
+}
 zle -N zle-line-init
 zle -N zle-keymap-select
 export EDITOR=vim

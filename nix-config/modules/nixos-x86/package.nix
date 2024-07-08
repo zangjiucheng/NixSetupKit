@@ -8,4 +8,5 @@ shared-packages ++ [
     tlp
     lm_sensors
     iw
+    xlayoutdisplay
 ]

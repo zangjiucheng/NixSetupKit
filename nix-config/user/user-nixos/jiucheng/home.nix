@@ -1,12 +1,17 @@
+{ pkgs, ...}:
 let 
   share_folder = "../../user-share";
   homeDir = builtins.getEnv "HOME";
 in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  
+  programs.zsh.enable = true;
+
   users.users.jiucheng = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    shell = pkgs.zsh;
   };
   home-manager.users.jiucheng = { config, pkgs, ... }: {
     programs.bash.enable = true;
@@ -26,8 +31,8 @@ in
 
     imports = [
       ./${share_folder}/jiucheng/modules/git.nix
+      ./${share_folder}/jiucheng/modules/zsh.nix
       ./modules/i3.nix
-      ./modules/vim.nix
       ./modules/vscode.nix
       ./x86-addon.nix
     ];
@@ -54,9 +59,7 @@ in
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-
       firefox
-      emacs
       lxqt.qterminal
       xcompmgr
       vscode
@@ -65,9 +68,6 @@ in
       btop
       gdb
       i3blocks
-      #todoist
-      #spotify
-      #discord
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,16 +78,18 @@ in
       # # symlink to the Nix store copy.
       # ".screenrc".source = dotfiles/screenrc;
 
-      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
-      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".config/i3blocks/config".source = dotfiles/i3blocks;
-      ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
-      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       # # You can also set the file content immediately.
       # ".gradle/gradle.properties".text = ''
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=36§00000
       # '';
+      
+      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
+      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
+      ".config/i3blocks/config".source = dotfiles/i3blocks;
+      # ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
+      ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
+      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       "bin" = {
         source = ./script;
         recursive = true;
@@ -111,7 +113,9 @@ in
     #  /etc/profiles/per-user/jiucheng/etc/profile.d/hm-session-vars.sh
     #
     home.sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
+      BROWSER = "firefox";
+      TERMINAL = "zsh";
     };
 
     xdg.mimeApps = {

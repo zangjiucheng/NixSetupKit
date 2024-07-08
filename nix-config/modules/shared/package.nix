@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 with pkgs; [
-    vim
+    neovim
     wget
     git
     htop
@@ -19,4 +19,14 @@ with pkgs; [
     zfs
     font-awesome
     gitui
+    gcc
+    nodejs_22
+    zsh
+    thefuck
+    fzf
+    bat
+    graphviz
+    pipx
+    freerdp3
+    eza
 ]

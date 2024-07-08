@@ -1,5 +1,5 @@
 [General]
-AskOnExit=false
+AskOnExit=true
 AudibleBell=false
 BoldIntense=true
 BookmarksFile=/home/jiucheng/.config/qterminal.org/qterminal_bookmarks.xml

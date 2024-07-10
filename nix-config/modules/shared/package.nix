@@ -29,4 +29,5 @@ with pkgs; [
     pipx
     freerdp3
     eza
+    onefetch
 ]

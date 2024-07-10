@@ -41,6 +41,15 @@
         };
   };
 
+  
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+  
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
+
   services.picom = {
     enable = true;
     vSync = true;

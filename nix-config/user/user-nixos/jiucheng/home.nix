@@ -13,6 +13,11 @@ in
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
   };
+
+  imports = [
+    ./modules/samba.nix
+  ];
+
   home-manager.users.jiucheng = { config, pkgs, ... }: {
     programs.bash.enable = true;
 
@@ -68,6 +73,7 @@ in
       btop
       gdb
       i3blocks
+      spicetify-cli
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -86,13 +92,25 @@ in
       
       ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".config/i3blocks/config".source = dotfiles/i3blocks;
+      ".config/i3blocks/config".source = ./dotfiles/i3blocks;
       # ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
       ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
+      ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       "bin" = {
         source = ./script;
         recursive = true;
+      };
+      
+      LazyVim = {
+        source = pkgs.fetchFromGitHub {
+          owner = "LazyVim";
+          repo = "starter";
+          rev = "79b3f27f5cea8fe6bbb95ba04f93dffa545c5197";
+          sha256 = "YmEcgCNQ/XCP/9PDaztTo+Kd18LgsmlmXrttCZGWD3k=";
+       	};
+        recursive = true;
+        target = ".config/nvim/";
       };
     };
 

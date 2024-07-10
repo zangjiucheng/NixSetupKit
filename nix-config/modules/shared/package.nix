@@ -29,4 +29,7 @@ with pkgs; [
     pipx
     freerdp3
     eza
+    tree
+    nurl
+    onefetch
 ]

@@ -29,6 +29,9 @@
       pipx
       vscode
       neovim
+      onefetch
+      vscode
+      ninja
     ];
 
   # Use a custom configuration.nix location.

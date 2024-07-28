@@ -14,6 +14,7 @@
       tree
       htop
       pyenv
+      python3Full
       fastfetch
       pandoc
       nixpkgs-fmt

@@ -50,7 +50,7 @@
   
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
-
+  
   services.picom = {
     enable = true;
     vSync = true;

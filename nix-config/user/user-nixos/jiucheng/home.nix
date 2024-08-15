@@ -98,6 +98,7 @@ in
       ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
       ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
+      
       "bin" = {
         source = ./script;
         recursive = true;

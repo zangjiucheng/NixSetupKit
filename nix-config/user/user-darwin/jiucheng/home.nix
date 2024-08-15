@@ -44,6 +44,7 @@ in
                         zsh
                         gitui
 			                  rogue
+                        sqlite
         ];
 
         file = {

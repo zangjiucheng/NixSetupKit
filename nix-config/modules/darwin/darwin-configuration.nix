@@ -14,6 +14,7 @@
       tree
       htop
       pyenv
+      python3Full
       fastfetch
       pandoc
       nixpkgs-fmt
@@ -29,6 +30,9 @@
       pipx
       vscode
       neovim
+      onefetch
+      vscode
+      ninja
     ];
 
   # Use a custom configuration.nix location.

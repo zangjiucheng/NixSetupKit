@@ -110,10 +110,10 @@ in
           repo = "starter";
           rev = "79b3f27f5cea8fe6bbb95ba04f93dffa545c5197";
           sha256 = "YmEcgCNQ/XCP/9PDaztTo+Kd18LgsmlmXrttCZGWD3k=";
+          };
+          recursive = true;
+          target = ".config/nvim/";
         };
-        recursive = true;
-        target = ".config/nvim/";
-      };
 
       # VirtualEnv = {
       #   source = pkgs.fetchFromGitHub {

@@ -8,7 +8,6 @@ with pkgs; [
     yadm
     tmux
     fastfetch
-    python3
     pyenv
     networkmanagerapplet
     zfs

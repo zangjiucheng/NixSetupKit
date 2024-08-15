@@ -22,7 +22,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "thefuck" ];
-      theme = "robbyrussell";
+      theme = "bira";
     };
 
     initExtra = ''
@@ -61,6 +61,10 @@
           }
         fi
         # <<< fzf End
+        
+        # PATH Addon 
+
+        export PATH="/home/jiucheng/.cargo/bin:$PATH"
     '';
   };
 }

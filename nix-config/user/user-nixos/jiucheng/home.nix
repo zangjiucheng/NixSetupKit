@@ -74,6 +74,7 @@ in
       gdb
       i3blocks
       spicetify-cli
+      rustup
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -108,10 +109,21 @@ in
           repo = "starter";
           rev = "79b3f27f5cea8fe6bbb95ba04f93dffa545c5197";
           sha256 = "YmEcgCNQ/XCP/9PDaztTo+Kd18LgsmlmXrttCZGWD3k=";
-       	};
+        };
         recursive = true;
         target = ".config/nvim/";
       };
+
+      # VirtualEnv = {
+      #   source = pkgs.fetchFromGitHub {
+      #     owner = "pyenv";
+      #     repo = "pyenv-virtualenv";
+      #     rev = "cf45718a1b0e86d7a53c8d03d11151306a080ec7";
+      #     hash = "sha256-MXGn5EFlMFOA5yd85F5Arv1lwjJQgfgU9bXO3cXRiho=";
+      #   };
+      #   recursive = true;
+      #   target = ".pyenv/plugins/pyenv-virtualenv";
+      # };
     };
 
 

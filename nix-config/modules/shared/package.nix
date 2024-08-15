@@ -8,7 +8,7 @@ with pkgs; [
     yadm
     tmux
     fastfetch
-    python3
+    python3Full
     pyenv
     networkmanagerapplet
     zfs
@@ -32,4 +32,7 @@ with pkgs; [
     tree
     nurl
     onefetch
+    foliate
+    pkg-config
+    openssl
 ]

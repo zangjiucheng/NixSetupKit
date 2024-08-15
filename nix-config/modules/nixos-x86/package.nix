@@ -9,4 +9,6 @@ shared-packages ++ [
     lm_sensors
     iw
     xlayoutdisplay
+    gnumake
+    libgcc
 ]

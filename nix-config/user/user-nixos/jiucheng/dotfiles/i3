@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 set $bgcolor    #523d6499
 set $in-bgcolor #36363660
 set $focused-ws #523d6480
@@ -74,10 +75,10 @@ bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $alt+Shift+h focus left
+bindsym $alt+Shift+j focus down
+bindsym $alt+Shift+k focus up
+bindsym $alt+Shift+l focus right
 
 # move focused window
 bindsym $mod+Shift+j move left

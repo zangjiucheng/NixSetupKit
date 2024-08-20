@@ -9,6 +9,7 @@ with pkgs; [
     tmux
     fastfetch
     python3Full
+    python311Packages.conda
     pyenv
     networkmanagerapplet
     zfs
@@ -35,4 +36,7 @@ with pkgs; [
     foliate
     pkg-config
     openssl
+    avahi
+    dbus
+    corepack
 ]

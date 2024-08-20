@@ -11,4 +11,6 @@ shared-packages ++ [
     xlayoutdisplay
     gnumake
     libgcc
+    chromium
+    gnome-network-displays
 ]

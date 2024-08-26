@@ -13,4 +13,5 @@ shared-packages ++ [
     libgcc
     chromium
     gnome-network-displays
+    qemu
 ]

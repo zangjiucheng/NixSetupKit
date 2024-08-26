@@ -39,4 +39,5 @@ with pkgs; [
     avahi
     dbus
     corepack
+    vlc
 ]

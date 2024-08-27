@@ -12,12 +12,10 @@ with pkgs; [
     python311Packages.conda
     pyenv
     networkmanagerapplet
-    zfs
     libreoffice
     gimp
     gnome.nautilus
     samba
-    zfs
     font-awesome
     gitui
     gcc

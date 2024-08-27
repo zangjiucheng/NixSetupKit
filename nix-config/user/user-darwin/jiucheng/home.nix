@@ -45,6 +45,9 @@ in
                         gitui
 			                  rogue
                         sqlite
+
+                        # For build lin
+                        gcc-arm-embedded
         ];
 
         file = {

@@ -75,6 +75,7 @@ in
       i3blocks
       spicetify-cli
       rustup
+      i3lock-fancy
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -94,8 +95,8 @@ in
       ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
       ".config/i3blocks/config".source = ./dotfiles/i3blocks;
-      # ".background-image".source = ./${share_folder}/background-image/LandScaping/john-towner.jpg;
       ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
+      # ".background-image".source = ./${share_folder}/background-image/Girl_Park_AI.png;
       ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       

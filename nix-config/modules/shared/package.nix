@@ -9,14 +9,13 @@ with pkgs; [
     tmux
     fastfetch
     python3Full
+    python311Packages.conda
     pyenv
     networkmanagerapplet
-    zfs
     libreoffice
     gimp
     gnome.nautilus
     samba
-    zfs
     font-awesome
     gitui
     gcc
@@ -35,4 +34,8 @@ with pkgs; [
     foliate
     pkg-config
     openssl
+    avahi
+    dbus
+    corepack
+    vlc
 ]

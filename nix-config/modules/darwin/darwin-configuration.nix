@@ -33,6 +33,7 @@
       onefetch
       vscode
       ninja
+      qemu
     ];
 
   # Use a custom configuration.nix location.

@@ -10,7 +10,7 @@ in
 
   users.users.jiucheng = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "i2c" "wheel" ];
     shell = pkgs.zsh;
   };
 
@@ -75,7 +75,25 @@ in
       i3blocks
       spicetify-cli
       rustup
-      i3lock-fancy
+      bitwarden-cli
+      slack
+
+      # Latex Setup
+      (pkgs.texlive.combine {
+        inherit (pkgs.texlive)
+          scheme-medium
+          enumitem
+          subfigure
+          calrsfs
+          changepage
+          framed
+          subfiles
+          pgfplots
+          fontsize
+          xecjk
+          ;
+      })
+ 
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -95,37 +113,27 @@ in
       ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
       ".config/i3blocks/config".source = ./dotfiles/i3blocks;
-      ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
-      # ".background-image".source = ./${share_folder}/background-image/Girl_Park_AI.png;
+      # ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
+      ".background-image".source = ./${share_folder}/background-image/Girl_Park_AI.png;
       ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       
       "bin" = {
         source = ./script;
         recursive = true;
-      };
-      
+      };      
+
       LazyVim = {
         source = pkgs.fetchFromGitHub {
-          owner = "LazyVim";
-          repo = "starter";
-          rev = "79b3f27f5cea8fe6bbb95ba04f93dffa545c5197";
-          sha256 = "YmEcgCNQ/XCP/9PDaztTo+Kd18LgsmlmXrttCZGWD3k=";
-          };
-          recursive = true;
-          target = ".config/nvim/";
+          owner = "zangjiucheng";
+          repo = "nvim-config";
+          rev = "f7adab1d2725395d2d16f5860013bbf0b630e934";
+          hash = "sha256-/LnBo4qMzxi2LGMdu8RzWZkHa9U+pH/LOaPxgfTQlCA=";
         };
+        recursive = true;
+        target = ".config/nvim/";
+      };
 
-      # VirtualEnv = {
-      #   source = pkgs.fetchFromGitHub {
-      #     owner = "pyenv";
-      #     repo = "pyenv-virtualenv";
-      #     rev = "cf45718a1b0e86d7a53c8d03d11151306a080ec7";
-      #     hash = "sha256-MXGn5EFlMFOA5yd85F5Arv1lwjJQgfgU9bXO3cXRiho=";
-      #   };
-      #   recursive = true;
-      #   target = ".pyenv/plugins/pyenv-virtualenv";
-      # };
     };
 
 

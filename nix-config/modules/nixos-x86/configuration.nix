@@ -2,7 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, lib, ... }:
+let
+  # customglib = import ../shared/custompackage/glib.nix {inherit pkgs; };
+in 
 {
   imports = [
       ../shared/configuration.nix
@@ -19,6 +22,13 @@
 
   # Use Latest Support kernelPackages for ZFS
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
+  hardware.steam-hardware.enable = true;
+  
+  boot.kernelModules = ["i2c-dev"];
+  services.udev.extraRules = ''
+        KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
 
   services.tlp = {
         enable = true;
@@ -41,12 +51,32 @@
         };
   };
 
+  environment = {
+    variables = {
+      LD_LIBRARY_PATH = lib.strings.concatStringsSep ":"
+        [ "${pkgs.zlib}/lib"
+          "${pkgs.stdenv.cc.cc.lib}/lib"
+          "${pkgs.glib.out}/lib"
+          "${pkgs.libGL}/lib"
+          "${pkgs.fontconfig.lib}/lib"
+          "${pkgs.xorg.libX11}/lib"
+          "${pkgs.libxkbcommon}/lib"
+          "${pkgs.dbus.lib}/lib"
+          "${pkgs.freetype}/lib"
+          # Add more paths as needed
+        ];
+    };
+  };
+
   programs.light.enable = true;
   
   services.samba-wsdd = {
     enable = true;
     openFirewall = true;
   };
+
+  # enable usbmuxd (used for portable device connect)
+  services.usbmuxd.enable = true;
   
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;

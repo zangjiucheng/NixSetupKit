@@ -1,41 +1,57 @@
 { pkgs, ... }:
 
-with pkgs; [
-    neovim
-    wget
-    git
-    htop
-    yadm
-    tmux
-    fastfetch
-    python3Full
-    python311Packages.conda
-    pyenv
-    networkmanagerapplet
-    libreoffice
-    gimp
-    gnome.nautilus
-    samba
-    font-awesome
-    gitui
-    gcc
-    nodejs_22
-    zsh
-    thefuck
-    fzf
-    bat
-    graphviz
-    pipx
-    freerdp3
-    eza
-    tree
-    nurl
-    onefetch
-    foliate
-    pkg-config
-    openssl
-    avahi
-    dbus
-    corepack
-    vlc
-]
+
+let
+  # Override glib to customize the postCheck phase
+  # customglib = import ./custompackage/glib.nix {inherit pkgs; };
+in
+
+# Include your customized glib in your package set
+(
+  with pkgs; [
+      neovim
+      wget
+      git
+      htop
+      yadm
+      tmux
+      fastfetch
+      python3Full # Include tkinter
+      networkmanagerapplet
+      libreoffice
+      gimp
+      gnome.nautilus
+      samba
+      gitui
+      gcc
+      nodejs_22
+      zsh
+      thefuck
+      fzf
+      bat
+      graphviz # render dot files
+      pipx 
+      freerdp3
+      eza
+      tree
+      nurl
+      onefetch
+      foliate # ebook reading
+      pkg-config
+      openssl
+      avahi
+      dbus
+      corepack # wrappers for npm
+      vlc
+
+      # Library Required
+      zlib
+      glib
+      libGL
+      fontconfig
+      xorg.libX11
+      libxkbcommon
+      dbus
+      freetype
+  ]
+)

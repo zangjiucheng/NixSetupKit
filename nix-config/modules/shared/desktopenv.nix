@@ -18,7 +18,7 @@
       extraPackages = with pkgs; [
         dmenu
         i3status
-        i3lock
+        i3lock-fancy
         i3blocks
       ];
     };

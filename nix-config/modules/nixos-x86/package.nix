@@ -15,4 +15,11 @@ shared-packages ++ [
     gnome-network-displays
     quickemu
     zfs
+    brightnessctl
+    ddcutil
+    i2c-tools
+    teams-for-linux
+    zoom-us
+    ifuse
+    libimobiledevice
 ]

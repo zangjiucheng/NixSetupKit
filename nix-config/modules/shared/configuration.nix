@@ -21,6 +21,7 @@
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
+  services.automatic-timezoned.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -33,13 +34,11 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
+      weather-icons
       noto-fonts
       nerdfonts
-      # noto-fonts-cjk-sans
-      # noto-fonts-cjk-serif
       source-han-sans
       source-han-serif
-      # sarasa-gothic 
       source-code-pro
       hack-font
       jetbrains-mono

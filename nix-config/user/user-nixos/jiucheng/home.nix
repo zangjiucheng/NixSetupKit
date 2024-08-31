@@ -77,6 +77,7 @@ in
       rustup
       bitwarden-cli
       slack
+      mailspring
 
       # Latex Setup
       (pkgs.texlive.combine {

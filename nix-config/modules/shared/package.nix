@@ -43,6 +43,9 @@ in
       dbus
       corepack # wrappers for npm
       vlc
+      cmatrix
+      jq # A JSON Processor CLI
+      weather
 
       # Library Required
       zlib

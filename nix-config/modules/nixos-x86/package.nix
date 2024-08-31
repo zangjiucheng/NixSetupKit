@@ -22,4 +22,5 @@ shared-packages ++ [
     zoom-us
     ifuse
     libimobiledevice
+    libsecret
 ]

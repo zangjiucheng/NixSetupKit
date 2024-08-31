@@ -77,7 +77,7 @@ in
 
   # enable usbmuxd (used for portable device connect)
   services.usbmuxd.enable = true;
-  
+ 
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
   

@@ -77,13 +77,24 @@ in
 
   # enable usbmuxd (used for portable device connect)
   services.usbmuxd.enable = true;
- 
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
-  
+
+  # Used for print services
+  services.printing.enable = true;
+    services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+   
   services.picom = {
     enable = true;
     vSync = true;
   };
+  
+  # Bluetooth services enabled
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
+  services.blueman.enable = true;
 
 }

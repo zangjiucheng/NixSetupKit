@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, lib, ... }:
+{ pkgs, inputs, ... }:
 {
   imports =
     [
@@ -107,6 +107,7 @@
   networking.firewall.allowedUDPPorts = [ 7236 7250 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -120,8 +121,19 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+
+  # system.autoUpgrade = {
+  # enable = true;
+  # # allowReboot = true;
+  # # flake = inputs.self.outPath;
+  # flags = [
+  #   "--update-input"
+  #   "nixpkgs"
+  #   "-L" # print build logs
+  # ];
+  # dates = "02:00";
+  # randomizedDelaySec = "45min";
+  # };
 
 }
 

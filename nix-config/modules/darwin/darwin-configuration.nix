@@ -34,6 +34,14 @@
       vscode
       ninja
       qemu
+      freerdp3
+      tmux
+      ripgrep
+      fd
+      
+      # JIT Python compiler
+      clang_18
+      llvm_18
     ];
 
   # Use a custom configuration.nix location.

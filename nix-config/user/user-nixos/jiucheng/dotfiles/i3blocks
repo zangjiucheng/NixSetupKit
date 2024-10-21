@@ -58,6 +58,11 @@ interval=1
 label=Volume:
 color=#FF69B4
 
+[weather]
+command=$HOME/bin/weather.sh
+interval=600
+color=#16D5E9
+
 [tztime]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1

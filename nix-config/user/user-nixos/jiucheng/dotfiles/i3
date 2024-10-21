@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+for_window [window_role="alert"] floating enable
+no_focus [window_role="alert"]
+
 set $mod Mod4
 set $alt Mod1
 set $bgcolor    #523d6499
@@ -18,11 +21,11 @@ set $bar-color  #523d640D
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -37,11 +40,7 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id copyq &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id fcitx5 &
-exec_always --no-startup-id bash ~/.wallpapper.sh
-#exec --no-startup-id blueman-manager &
-#exec_always --no-startup-id compton
-#exec_always --no-startup-id picom
-#exec --no-startup-id bash ./home/jiucheng/timsync.sh
+exec --no-startup-id blueman-applet &
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -55,7 +54,6 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec qterminal
-bindsym $mod+Shift+Return exec warp-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -199,10 +197,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
-	# i3bar_command i3bar --transparency
+    status_command i3blocks
 	colors {
-		#background $bar-color
 		focused_workspace $focused-ws-bg $focused-ws-fg $text
 	}
 	position top
@@ -211,7 +207,6 @@ bar {
 bindsym $mod+Shift+p move workspace to output right
 bindsym $mod+Shift+o move workspace to output left
 bindsym $mod+Shift+g exec firefox
-#bindsym $mod+Shift+g exec firefox
 bindsym $mod+Shift+a exec code
 bindsym $mod+F1 exec amixer set Master toggle && amixer set Speaker unmute
 bindsym $mod+F2 exec amixer set Master 2%-
@@ -219,37 +214,29 @@ bindsym $mod+F3 exec amixer set Master 2%+
 bindsym $mod+F4 exec amixer set Capture toggle
 bindsym $mod+F5 exec brightnessctl s 50-
 bindsym $mod+F6 exec brightnessctl s +50
+bindsym $mod+F12 exec i3lock
 #bindsym $mod+F8 exec sudo ifconfig wlp5s0 down
-bindsym $mod+Shift+v exec sudo vmplayer /root/vmware/Windows\ 10\ x64/Windows\ 10\ x64.vmx -X
-bindsym $mod+m exec i3-sensible-terminal -e cmatrix
-bindsym $mod+Shift+h exec i3-sensible-terminal -e ranger
-bindsym $mod+t exec sh /home/jiucheng/.timesync_now.sh
-bindsym $mod+x exec sh /home/jiucheng/.monitor-reset.sh
+bindsym $mod+m exec qterminal -e cmatrix
 bindsym $mod+Shift+s exec spotify 
-bindsym $mod+o exec i3-sensible-terminal -e alsamixer
+bindsym $mod+o exec qterminal -e alsamixer
 bindsym $mod+Shift+n exec notion-snap-reborn
 bindsym $mod+Shift+d exec discord
-bindsym $mod+b exec lock
-bindsym $mod+p exec sh /home/jiucheng/.sleep.sh
-#bindsym $mod+Shift+z exec libreoffice
-#bindsym --release $mod+x exec --no-startup-id import /home/jiucheng/ss.png
 bindsym Print exec flameshot gui
-bindsym $mod+Shift+t exec texstudio
-bindsym $mod+Shift+b exec /opt/tor-browser/Browser/start-tor-browser
-bindsym $mod+Shift+x exec pycharm.sh
 bindsym $mod+Shift+m exec mailspring --password-store="gnome-libsecret" %U
 bindsym $mod+Shift+u exec xdg-open ./ 
-bindsym $mod+n exec sh ~/.remoteWindows.sh
 
-#bindsym $mod+Shift+m exec mailspring
-#bindsym $mod+z exec zeal
 #Colors
-
-#client.background       #FFFFFF
-#client.focused          #4c7899 #285577 #ffffff #2e9ef4
-#lient.focused_inactive #333333 #5f676a #ffffff #484e50
-#client.unfocused        #333333 #222222 #888888 #292d2e
-#_client.urgent           #2f343a #900000 #ffffff #900000
+set $bgcolor    #523d64
+set $in-bgcolor #363636
+set $text       #ffffff
+set $u-bgcolor  #ff0000
+set $indicator  #a8a3c1
+set $in-text    #969696
+#                       Borders          Background     Text            Indicator (a line showing the position of the next window)
+client.focused          $bgcolor        $bgcolor        $text           $indicator
+client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor
 
 # default gaps
 gaps inner 15

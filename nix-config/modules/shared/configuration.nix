@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, lib, ... }:
+{ pkgs, inputs, ... }:
 {
   imports =
     [
@@ -21,6 +21,7 @@
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
+  services.automatic-timezoned.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -33,13 +34,11 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
+      weather-icons
       noto-fonts
       nerdfonts
-      # noto-fonts-cjk-sans
-      # noto-fonts-cjk-serif
       source-han-sans
       source-han-serif
-      # sarasa-gothic 
       source-code-pro
       hack-font
       jetbrains-mono
@@ -84,6 +83,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Enable syncthing
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
@@ -108,6 +113,7 @@
   networking.firewall.allowedUDPPorts = [ 7236 7250 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -121,8 +127,19 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+
+  # system.autoUpgrade = {
+  # enable = true;
+  # # allowReboot = true;
+  # # flake = inputs.self.outPath;
+  # flags = [
+  #   "--update-input"
+  #   "nixpkgs"
+  #   "-L" # print build logs
+  # ];
+  # dates = "02:00";
+  # randomizedDelaySec = "45min";
+  # };
 
 }
 

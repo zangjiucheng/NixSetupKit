@@ -47,6 +47,7 @@ in
       jq # A JSON Processor CLI
       weather
       syncthing
+      gh
 
       # Library Required
       zlib

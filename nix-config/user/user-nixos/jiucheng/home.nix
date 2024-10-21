@@ -66,6 +66,7 @@ in
       # '')
       firefox
       lxqt.qterminal
+      lxqt.qtermwidget
       xcompmgr
       vscode
       copyq
@@ -77,6 +78,7 @@ in
       rustup
       bitwarden-cli
       slack
+      mailspring
 
       # Latex Setup
       (pkgs.texlive.combine {
@@ -114,25 +116,15 @@ in
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
       ".config/i3blocks/config".source = ./dotfiles/i3blocks;
       # ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
-      ".background-image".source = ./${share_folder}/background-image/Girl_Park_AI.png;
+      ".background-image".source = ./${share_folder}/background-image/littleBoy.png;
       ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
+      # ".nix-profile/share/qtermwidget6/Dracula.colorscheme".source = ./dotfiles/Dracula.colorscheme;
       
       "bin" = {
         source = ./script;
         recursive = true;
       };      
-
-      LazyVim = {
-        source = pkgs.fetchFromGitHub {
-          owner = "zangjiucheng";
-          repo = "nvim-config";
-          rev = "f7adab1d2725395d2d16f5860013bbf0b630e934";
-          hash = "sha256-/LnBo4qMzxi2LGMdu8RzWZkHa9U+pH/LOaPxgfTQlCA=";
-        };
-        recursive = true;
-        target = ".config/nvim/";
-      };
 
     };
 

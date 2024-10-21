@@ -43,6 +43,11 @@ in
       dbus
       corepack # wrappers for npm
       vlc
+      cmatrix
+      jq # A JSON Processor CLI
+      weather
+      syncthing
+      gh
 
       # Library Required
       zlib
@@ -53,5 +58,16 @@ in
       libxkbcommon
       dbus
       freetype
+      pango
+
+      # Lazyvim Required
+      viu
+      chafa 
+      luajitPackages.luarocks 
+      ueberzugpp
+      fd
+      ripgrep
+      lazygit
+      unzip
   ]
 )

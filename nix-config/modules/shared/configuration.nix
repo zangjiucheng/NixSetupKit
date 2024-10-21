@@ -83,6 +83,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Enable syncthing
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 

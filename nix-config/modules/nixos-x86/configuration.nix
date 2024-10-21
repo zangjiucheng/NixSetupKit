@@ -63,6 +63,7 @@ in
           "${pkgs.libxkbcommon}/lib"
           "${pkgs.dbus.lib}/lib"
           "${pkgs.freetype}/lib"
+          "${pkgs.pango.out}/lib"
           # Add more paths as needed
         ];
     };

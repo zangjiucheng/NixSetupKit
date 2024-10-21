@@ -46,6 +46,7 @@ in
       cmatrix
       jq # A JSON Processor CLI
       weather
+      syncthing
 
       # Library Required
       zlib
@@ -56,5 +57,16 @@ in
       libxkbcommon
       dbus
       freetype
+      pango
+
+      # Lazyvim Required
+      viu
+      chafa 
+      luajitPackages.luarocks 
+      ueberzugpp
+      fd
+      ripgrep
+      lazygit
+      unzip
   ]
 )

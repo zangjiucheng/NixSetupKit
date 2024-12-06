@@ -34,15 +34,25 @@
       vscode
       ninja
       qemu
+      virt-viewer
       freerdp3
       tmux
       ripgrep
       fd
+      lazydocker
+      ghostscript
+      musescore
       
       # JIT Python compiler
-      clang_18
-      llvm_18
+      # clang_18
+      # llvm_18
     ];
+
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix

@@ -14,6 +14,8 @@
         "/Applications/Spotify.app"
         "/Applications/Signal.app"
         "/System/Applications/Utilities/Disk Utility.app"
+        "/System/Applications/Utilities/Screen\ Sharing.app"
+        "/System/Applications/Launchpad.app"
       ];
     };
     #finder.AppleShowAllExtensions = true;

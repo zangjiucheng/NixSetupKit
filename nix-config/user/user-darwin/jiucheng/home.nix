@@ -45,6 +45,9 @@ in
                         gitui
 			                  rogue
                         sqlite
+                        gh
+                        fzf
+                        docker-compose
 
                         # For build lin
                         gcc-arm-embedded

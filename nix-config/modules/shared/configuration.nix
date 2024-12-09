@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
@@ -20,7 +20,7 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Toronto";
+  # time.timeZone = "America/Toronto";
   services.automatic-timezoned.enable = true;
 
   # Enable Flakes
@@ -52,7 +52,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
   #i18n.defaultLocale = "zh_CN.UTF-8"; # Change to Chinese System
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-rime
@@ -76,9 +77,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # Enable sound. (Depreciated from 24.11)
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;

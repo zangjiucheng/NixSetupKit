@@ -3,14 +3,13 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 { config, pkgs, lib, ... }:
-let
-  # customglib = import ../shared/custompackage/glib.nix {inherit pkgs; };
-in 
+
 {
   imports = [
       ../shared/configuration.nix
       ../../user/user-nixos/userList.nix
       ./zfs.nix
+      ./picom.nix
   ];
 
   # Avoid touchpad click to tap (clickpad) bug. For more detail see:
@@ -20,8 +19,9 @@ in
   # x86-nixos Software
   environment.systemPackages = pkgs.callPackage ./package.nix {};
 
-  # Use Latest Support kernelPackages for ZFS
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # Use Latest Support kernelPackages for ZFS linux_6_6
+  # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 
   hardware.steam-hardware.enable = true;
   
@@ -40,13 +40,13 @@ in
           CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
           CPU_MIN_PERF_ON_AC = 0;
-          CPU_MAX_PERF_ON_AC = 95;
+          CPU_MAX_PERF_ON_AC = 100;
           CPU_MIN_PERF_ON_BAT = 0;
-          CPU_MAX_PERF_ON_BAT = 85;
+          CPU_MAX_PERF_ON_BAT = 90;
 
-         #Optional helps save long term battery health
-          START_CHARGE_THRESH_BAT0 = 80; # 40 and bellow it starts to charge
-          STOP_CHARGE_THRESH_BAT0 = 95; # 80 and above it stops charging
+          # Optional helps save long term battery health
+          START_CHARGE_THRESH_BAT0 = 80; # 80 and bellow it starts to charge
+          STOP_CHARGE_THRESH_BAT0 = 95; # 95 and above it stops charging
 
         };
   };
@@ -87,11 +87,6 @@ in
     openFirewall = true;
   };
    
-  services.picom = {
-    enable = true;
-    vSync = true;
-  };
-  
   # Bluetooth services enabled
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot

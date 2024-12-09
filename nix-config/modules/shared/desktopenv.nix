@@ -23,4 +23,6 @@
       ];
     };
   };
+
+  services.fractalart.enable = false; 
 }

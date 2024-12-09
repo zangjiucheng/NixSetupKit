@@ -1,7 +1,10 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 with pkgs;
-let shared-packages = import ../shared/package.nix { inherit pkgs; }; in
+let 
+  shared-packages = import ../shared/package.nix { inherit pkgs; }; 
+# selfpackages = import ./self-pack.nix { inherit stdenv fetchurl pkgs patchelf; };
+in
 shared-packages ++ [
     spotify
     discord
@@ -23,4 +26,5 @@ shared-packages ++ [
     ifuse
     libimobiledevice
     libsecret
-]
+    thunderbird
+] 

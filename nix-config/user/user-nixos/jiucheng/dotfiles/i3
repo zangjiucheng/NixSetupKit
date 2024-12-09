@@ -222,7 +222,7 @@ bindsym $mod+o exec qterminal -e alsamixer
 bindsym $mod+Shift+n exec notion-snap-reborn
 bindsym $mod+Shift+d exec discord
 bindsym Print exec flameshot gui
-bindsym $mod+Shift+m exec mailspring --password-store="gnome-libsecret" %U
+bindsym $mod+Shift+m exec thunderbird 
 bindsym $mod+Shift+u exec xdg-open ./ 
 
 #Colors

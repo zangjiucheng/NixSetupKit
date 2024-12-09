@@ -18,6 +18,8 @@ in
     ./modules/samba.nix
   ];
 
+  # home-manager.backupFileExtension = "backup";
+
   home-manager.users.jiucheng = { config, pkgs, ... }: {
     programs.bash.enable = true;
 
@@ -78,7 +80,7 @@ in
       rustup
       bitwarden-cli
       slack
-      mailspring
+      postman
 
       # Latex Setup
       (pkgs.texlive.combine {
@@ -114,9 +116,10 @@ in
       
       ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
       ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".config/i3blocks/config".source = ./dotfiles/i3blocks;
+      ".config/i3blocks/config".source = dotfiles/i3blocks;
       # ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
-      ".background-image".source = ./${share_folder}/background-image/littleBoy.png;
+      ".background-image".source = ./${share_folder}/background-image/cityGirl.jpg;
+      # ".background-image".source = ./${share_folder}/background-image/littleBoy.png;
       ".face".source = ./${share_folder}/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
       # ".nix-profile/share/qtermwidget6/Dracula.colorscheme".source = ./dotfiles/Dracula.colorscheme;

@@ -14,39 +14,42 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    securityType = "user";
-    invalidUsers = [ "root" ];
-    extraConfig = ''
-      ## IOS Improve, VFS ##
-      vfs objects = fruit streams_xattr
-      fruit:metadata = stream
-      fruit:model = MacSamba
-      fruit:posix_rename = yes
-      fruit:veto_appledouble = no
-      fruit:nfs_aces = no
-      fruit:wipe_intentionally_left_blank_rfork = yes
-      fruit:delete_empty_adfiles = yes
-      
-      workgroup = WORKGROUP
-      server role = standalone server
-      server string = smbnix
-      netbios name = smbnix
-      
-      max protocol = smb2
-      hosts allow = 192.168.2. 127.0.0.1 localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = {
+    settings = {
+      global = {
+        security = "user";
+        "invalid users" = [ 
+            "root"
+        ];
+        ## IOS Improve, VFS ##
+        "vfs objects" = "fruit streams_xattr";
+        "fruit:metadata" = "stream";
+        "fruit:model" = "MacSamba";
+        "fruit:posix_rename" = "yes";
+        "fruit:veto_appledouble" = "no";
+        "fruit:nfs_aces" = "no";
+        "fruit:wipe_intentionally_left_blank_rfork" = "yes";
+        "fruit:delete_empty_adfiles" = "yes";
+        
+        "workgroup" = "WORKGROUP";
+        "server role" = "standalone server";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        
+        "max protocol" = "smb2";
+        "hosts allow" = "192.168.2. 127.0.0.1 localhost";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
+
       NixOS-Share = {
-        path = "/share";
-        browseable = "yes";
-        writeable = "yes";
-        public = "yes";
-        "create mask" = "0644";
-        "directory mask" = "2777";
-        comment = "Samba Server NixOS";
+          path = "/share";
+          browseable = "yes";
+          writeable = "yes";
+          public = "yes";
+          "create mask" = "0644";
+          "directory mask" = "2777";
+          comment = "Samba Server NixOS";
       };
 
       # Home-Server = {

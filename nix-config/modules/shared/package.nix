@@ -1,12 +1,5 @@
 { pkgs, ... }:
 
-
-let
-  # Override glib to customize the postCheck phase
-  # customglib = import ./custompackage/glib.nix {inherit pkgs; };
-in
-
-# Include your customized glib in your package set
 (
   with pkgs; [
       neovim
@@ -20,7 +13,7 @@ in
       networkmanagerapplet
       libreoffice
       gimp
-      gnome.nautilus
+      nautilus
       samba
       gitui
       gcc
@@ -69,5 +62,6 @@ in
       ripgrep
       lazygit
       unzip
+      xclip
   ]
 )

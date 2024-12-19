@@ -12,14 +12,16 @@
     openFirewall = true;
   };
   services.samba = {
-    enable = true;
+    enable = false;
     openFirewall = true;
+
     settings = {
       global = {
         security = "user";
         "invalid users" = [ 
             "root"
         ];
+
         ## IOS Improve, VFS ##
         "vfs objects" = "fruit streams_xattr";
         "fruit:metadata" = "stream";
@@ -29,40 +31,18 @@
         "fruit:nfs_aces" = "no";
         "fruit:wipe_intentionally_left_blank_rfork" = "yes";
         "fruit:delete_empty_adfiles" = "yes";
-        
+
         "workgroup" = "WORKGROUP";
         "server role" = "standalone server";
         "server string" = "smbnix";
         "netbios name" = "smbnix";
-        
+
         "max protocol" = "smb2";
         "hosts allow" = "192.168.2. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
       };
-
-      NixOS-Share = {
-          path = "/share";
-          browseable = "yes";
-          writeable = "yes";
-          public = "yes";
-          "create mask" = "0644";
-          "directory mask" = "2777";
-          comment = "Samba Server NixOS";
-      };
-
-      # Home-Server = {
-      #   path = "/mnt/primordium/data";
-      #   browseable = "yes";
-      #   writeable = "yes";
-      #   "guest ok" = "no";
-      #   public = "no";
-      #   "create mask" = "0644";
-      #   "directory mask" = "2777";
-      #   "force user" = "dinghong";
-      #   comment = "Samba Server NixOS";
-      # };
     };
   };
 }

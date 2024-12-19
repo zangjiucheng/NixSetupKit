@@ -12,6 +12,8 @@
       ./picom.nix
   ];
 
+  system.nixos.tags = [ "x86-user" ];
+
   # Avoid touchpad click to tap (clickpad) bug. For more detail see:
   # https://wiki.archlinux.org/title/Touchpad_Synaptics#Touchpad_does_not_work_after_resuming_from_hibernate/suspend
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
@@ -70,11 +72,6 @@
   };
 
   programs.light.enable = true;
-  
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # enable usbmuxd (used for portable device connect)
   services.usbmuxd.enable = true;
@@ -86,6 +83,10 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  # Automount USB drives
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
    
   # Bluetooth services enabled
   hardware.bluetooth.enable = true; # enables support for Bluetooth

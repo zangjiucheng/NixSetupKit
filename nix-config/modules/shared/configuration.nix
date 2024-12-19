@@ -20,8 +20,8 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  # time.timeZone = "America/Toronto";
-  services.automatic-timezoned.enable = true;
+  time.timeZone = "America/Toronto";
+  # services.automatic-timezoned.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -80,6 +80,17 @@
   # Enable sound. (Depreciated from 24.11)
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
+  # rtkit is optional but recommended
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -110,8 +121,8 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 8080 7236 7250 ];
-  networking.firewall.allowedUDPPorts = [ 7236 7250 ];
+  networking.firewall.allowedTCPPorts = [ 22 8080 7236 7250 443 ];
+  networking.firewall.allowedUDPPorts = [ 7236 7250 443 ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;

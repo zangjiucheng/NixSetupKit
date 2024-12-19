@@ -41,6 +41,7 @@
       weather
       syncthing
       gh
+      myxer # Modern Volume Mixer
 
       # Library Required
       zlib

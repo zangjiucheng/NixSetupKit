@@ -48,6 +48,15 @@
       ];
     };
 
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./modules/server/server-configuration.nix
+        home-manager.nixosModules.default
+      ];
+    };
+
     darwinConfigurations.macos = nix-darwin.lib.darwinSystem {
       modules = [ 
 	      ./modules/darwin/darwin-configuration.nix 

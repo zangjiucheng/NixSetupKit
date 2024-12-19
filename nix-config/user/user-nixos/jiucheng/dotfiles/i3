@@ -14,6 +14,7 @@ no_focus [window_role="alert"]
 
 set $mod Mod4
 set $alt Mod1
+set $ctrl Control
 set $bgcolor    #523d6499
 set $in-bgcolor #36363660
 set $focused-ws #523d6480
@@ -38,9 +39,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet &
 exec --no-startup-id copyq &
-exec --no-startup-id xcompmgr &
 exec --no-startup-id fcitx5 &
 exec --no-startup-id blueman-applet &
+
+exec xcompmgr &
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -208,22 +210,23 @@ bindsym $mod+Shift+p move workspace to output right
 bindsym $mod+Shift+o move workspace to output left
 bindsym $mod+Shift+g exec firefox
 bindsym $mod+Shift+a exec code
-bindsym $mod+F1 exec amixer set Master toggle && amixer set Speaker unmute
-bindsym $mod+F2 exec amixer set Master 2%-
-bindsym $mod+F3 exec amixer set Master 2%+
-bindsym $mod+F4 exec amixer set Capture toggle
+bindsym $mod+F1 exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym $mod+F2 exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym $mod+F3 exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym $mod+F4 exec wpctl set-mute @DEFAULT_SOURCE@ toggle
 bindsym $mod+F5 exec brightnessctl s 50-
 bindsym $mod+F6 exec brightnessctl s +50
-bindsym $mod+F12 exec i3lock
+bindsym $mod+F12 exec myxer
 #bindsym $mod+F8 exec sudo ifconfig wlp5s0 down
 bindsym $mod+m exec qterminal -e cmatrix
 bindsym $mod+Shift+s exec spotify 
-bindsym $mod+o exec qterminal -e alsamixer
+#bindsym $mod+o exec qterminal -e alsamixer
 bindsym $mod+Shift+n exec notion-snap-reborn
 bindsym $mod+Shift+d exec discord
 bindsym Print exec flameshot gui
 bindsym $mod+Shift+m exec thunderbird 
 bindsym $mod+Shift+u exec xdg-open ./ 
+bindsym $alt+$ctrl+q exec i3lock
 
 #Colors
 set $bgcolor    #523d64

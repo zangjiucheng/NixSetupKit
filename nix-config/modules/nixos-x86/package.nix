@@ -27,4 +27,8 @@ shared-packages ++ [
     libimobiledevice
     libsecret
     thunderbird
+
+    usbutils
+    udiskie
+    udisks
 ] 

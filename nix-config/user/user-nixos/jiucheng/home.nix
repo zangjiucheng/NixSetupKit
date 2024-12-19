@@ -82,7 +82,7 @@ in
       slack
       postman
       foliate
-      
+
 
       # Latex Setup
       (pkgs.texlive.combine {

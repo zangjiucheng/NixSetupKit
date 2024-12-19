@@ -80,6 +80,7 @@
   # Enable sound. (Depreciated from 24.11)
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
+
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
@@ -90,7 +91,6 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;

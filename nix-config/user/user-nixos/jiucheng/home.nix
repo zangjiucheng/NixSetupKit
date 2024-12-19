@@ -81,6 +81,8 @@ in
       bitwarden-cli
       slack
       postman
+      foliate
+
 
       # Latex Setup
       (pkgs.texlive.combine {
@@ -128,6 +130,30 @@ in
         source = ./script;
         recursive = true;
       };      
+
+      "Dev" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/datapool/Dev";
+        recursive = true;
+      };
+
+      "Dev-Share" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/datapool/Dev-Share";
+        recursive = true;
+      };
+
+      "Documents" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/datapool/Documents";
+        recursive = true;
+      };
+
+      "Downloads" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/datapool/Download";
+        recursive = true;
+      };
+
+      "qemu-vm" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/datapool/qemu-vm";
+      };
 
     };
 

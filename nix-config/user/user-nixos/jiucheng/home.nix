@@ -38,7 +38,7 @@ in
 
     imports = [
       ./${share_folder}/jiucheng/modules/git.nix
-      ./${share_folder}/jiucheng/modules/zsh.nix
+      ./modules/zsh.nix
       ./modules/i3.nix
       ./modules/vscode.nix
       ./x86-addon.nix

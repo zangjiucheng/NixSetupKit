@@ -41,7 +41,7 @@
       fd
       lazydocker
       ghostscript
-      musescore
+      pinentry_mac
       
       # JIT Python compiler
       # clang_18

@@ -48,15 +48,18 @@ in
                         gh
                         fzf
                         docker-compose
-
+                        musescore
+                        presenterm
+                        
                         # For build lin
                         gcc-arm-embedded
         ];
 
         file = {
-          ".zshrc".source = dotfiles/zshrc;
-          ".ssh/config".source =  ./${share_folder}/${user}/dotfiles/ssh_config;
-          ".config/htop/htoprc".source = ./${share_folder}/${user}/dotfiles/htoprc;
+          ".zshrc".source = dotfiles/zshrc.config;
+          ".ssh/config".source =  ./${share_folder}/${user}/dotfiles/ssh_config.config;
+          ".config/htop/htoprc".source = ./${share_folder}/${user}/dotfiles/htoprc.config;
+          ".config/ghostty/config".source = ./${share_folder}/${user}/dotfiles/ghostty.config;
         };
 
         stateVersion = "23.11";

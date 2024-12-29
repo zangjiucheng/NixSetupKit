@@ -18,7 +18,7 @@
       fastfetch
       pandoc
       nixpkgs-fmt
-      ffmpeg_5
+      ffmpeg-full
       cmake
       wget
       ctags
@@ -41,7 +41,8 @@
       fd
       lazydocker
       ghostscript
-      pinentry_mac
+      pinentry_mac # GPG Integration
+      tree-sitter # Layvim
       
       # JIT Python compiler
       # clang_18

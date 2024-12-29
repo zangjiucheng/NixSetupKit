@@ -35,7 +35,6 @@ in
                         fastfetch
                         pandoc
                         nixpkgs-fmt
-                        ffmpeg_5
                         cmake
                         wget
                         ctags

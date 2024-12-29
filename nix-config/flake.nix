@@ -9,27 +9,14 @@
     nixos.url = "nixpkgs/24.11-beta";
     home-manager = {
       url = github:nix-community/home-manager/release-24.11;
-      #url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
+    };  
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
     };
-    #nix-homebrew = {
-    #  url = "github:zhaofengli-wip/nix-homebrew";
-    #};
-    #homebrew-bundle = {
-    #  url = "github:homebrew/homebrew-bundle";
-    #  flake = false;
-    #};
-    #homebrew-core = {
-    #  url = "github:homebrew/homebrew-core";
-    #  flake = false;
-    #};
-    #homebrew-cask = {
-    #  url = "github:homebrew/homebrew-cask";
-    #  flake = false;
-    #}; 
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, nixos, ... }@attrs: {
+  outputs = { self, nix-darwin, nixpkgs, home-manager, nixos, ghostty, ... }@attrs: {
     nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = attrs;
@@ -63,6 +50,5 @@
         home-manager.darwinModules.default
       ];
     };
- 
   };
 }

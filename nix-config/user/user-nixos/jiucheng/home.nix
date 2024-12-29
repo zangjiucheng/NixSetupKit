@@ -75,7 +75,6 @@ in
       flameshot
       btop
       gdb
-      i3blocks
       spicetify-cli
       rustup
       bitwarden-cli
@@ -116,15 +115,14 @@ in
       #   org.gradle.daemon.idletimeout=36§00000
       # '';
       
-      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc;
-      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal;
-      ".config/i3blocks/config".source = dotfiles/i3blocks;
+      ".config/htop/htoprc".source = ./${share_folder}/jiucheng/dotfiles/htoprc.config;
+      ".config/qterminal.org/qterminal.ini".source = dotfiles/qterminal.config;
+      ".config/i3blocks/config".source = dotfiles/i3blocks.config;
       # ".background-image".source = ./${share_folder}/background-image/LandScaping/pexels-8moments.jpg;
       ".background-image".source = ./${share_folder}/background-image/cityGirl.jpg;
       # ".background-image".source = ./${share_folder}/background-image/littleBoy.png;
-      ".face".source = ./${share_folder}/face.png;
-      ".ssh/config".source = ./${share_folder}/jiucheng/ssh_config;
-      # ".nix-profile/share/qtermwidget6/Dracula.colorscheme".source = ./dotfiles/Dracula.colorscheme;
+      ".face".source = ./${share_folder}/jiucheng/face.png;
+      ".ssh/config".source = ./${share_folder}/jiucheng/dotfiles/ssh_config.config;
       
       "bin" = {
         source = ./script;

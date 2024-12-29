@@ -3,7 +3,6 @@
 with pkgs;
 let 
   shared-packages = import ../shared/package.nix { inherit pkgs; }; 
-# selfpackages = import ./self-pack.nix { inherit stdenv fetchurl pkgs patchelf; };
 in
 shared-packages ++ [
     spotify

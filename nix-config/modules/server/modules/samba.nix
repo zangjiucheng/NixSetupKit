@@ -77,7 +77,7 @@
 
       CutProject = {
         comment = "Photography Folder";
-        path = "/NAS/Photography_video";
+        path = "/MyBook/Photography_video";
         browseable = "yes";
         writable = "yes";
       };
@@ -98,7 +98,7 @@
 
       PhoneMediaBackup = {
         comment = "portable device album backup";
-        path = "/NAS/PhoneMedia";
+        path = "/MyBook/PhoneMedia";
         writable = "yes";
         browseable = "yes";
       };

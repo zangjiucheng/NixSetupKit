@@ -44,6 +44,14 @@ in
       "script/docker-server.sh" = {
         source = ./script/docker-server.sh;
       };      
+
+      "script/NAS-backup.sh" = {
+        source = ./script/NAS-backup.sh;
+      };      
+
+      "script/exclude-list.txt" = {
+        source = ./script/exclude-list.txt;
+      };      
       
       "script/navidrome" = {
         source = ./script/navidrome;
@@ -62,6 +70,10 @@ in
 
       "script/immich-app/docker-compose.yml" = {
         source = ./script/immich-app/docker-compose.yml;
+      };      
+
+      "script/immich-app/.env" = {
+        source = ./script/immich-app/.env;
       };      
 
     };

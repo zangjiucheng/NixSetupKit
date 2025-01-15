@@ -1,0 +1,81 @@
+# General system and temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.bak
+*.swp
+*.lock
+*.cache
+*.log
+*.pid
+*.old
+*.orig
+
+# MacOS specific
+._*
+.fseventsd/
+.Spotlight-V100/
+.Trashes/
+.AppleDouble/
+.AppleDB/
+
+# Windows specific
+$RECYCLE.BIN/
+System Volume Information/
+
+# Linux specific
+lost+found/
+
+# Version control directories
+.git/
+.hg/
+.svn/
+.CVS/
+
+# Node.js dependencies
+node_modules/
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Java and related
+*.class
+*.war
+*.ear
+
+# Build and compilation artifacts
+build/
+dist/
+target/
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.dylib
+*.a
+*.lib
+
+# IDE and editor files
+.vscode/
+.idea/
+*.iml
+*.workspace
+*.project
+
+# Package managers
+*.lock
+*.yarn-integrity
+*.pnp.js
+
+# Temporary and swap files
+*.swp
+*.swo
+*.tmp
+
+# Custom NAS directories (edit based on your setup)
+

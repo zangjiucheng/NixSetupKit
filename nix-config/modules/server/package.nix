@@ -29,5 +29,6 @@
       dbus
       vlc
       jq # A JSON Processor CLI
+      restic
   ]
 )

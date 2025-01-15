@@ -41,8 +41,10 @@
       fd
       lazydocker
       ghostscript
-      pinentry_mac # GPG Integration
+      gimp
       tree-sitter # Layvim
+      git-extras
+
       
       # JIT Python compiler
       # clang_18

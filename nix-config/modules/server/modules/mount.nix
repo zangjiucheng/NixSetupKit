@@ -5,8 +5,12 @@
   
   fileSystems."/NAS" = {
     device = "/dev/disk/by-label/NAS_Disk";
-    fsType = "ntfs-3g"; 
-    options = [ "rw" "uid=1000"];
+    options = [ "users" "nofail" ];
+  };
+
+  fileSystems."/MyBook" = {
+    device = "/dev/disk/by-label/My_Book";
+    options = [ "rw" "uid=1000" "nofail" ];
   };
   
 }

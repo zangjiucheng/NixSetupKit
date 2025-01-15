@@ -42,6 +42,7 @@
       syncthing
       gh
       myxer # Modern Volume Mixer
+      gparted # Partition Manager
 
       # Library Required
       zlib

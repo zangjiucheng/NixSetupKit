@@ -47,10 +47,19 @@ in
                         gh
                         fzf
                         docker-compose
-                        musescore
                         presenterm
-                        
-                        # For build lin
+                        racket
+                        postman
+                        gimp
+                        zotero
+                        zoom-us
+                        telegram-desktop
+                        discord
+                        raycast
+                        slack
+                        localsend
+
+                        # For build linux kernel
                         gcc-arm-embedded
         ];
 

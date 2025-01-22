@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs;
     [
       tree
-      htop
+      btop
       pyenv
       python3Full
       fastfetch
@@ -30,6 +30,7 @@
       pipx
       vscode
       neovim
+      net-news-wire
       onefetch
       vscode
       ninja
@@ -41,10 +42,10 @@
       fd
       lazydocker
       ghostscript
-      gimp
       tree-sitter # Layvim
       git-extras
-
+      spotify
+      signal-desktop
       
       # JIT Python compiler
       # clang_18

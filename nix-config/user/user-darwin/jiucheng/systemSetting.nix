@@ -7,14 +7,13 @@
       orientation = "right";
       persistent-apps = [
         "/System/Applications/Mail.app"
-        "/Applications/NetNewsWire.app"
+        "/Applications/Nix\ Apps/NetNewsWire.app"
         "/System/Applications/Calendar.app"
         "/Applications/Nix\ Apps/Visual\ Studio\ Code.app"
         "/Applications/Arc.app"
-        "/Applications/Spotify.app"
-        "/Applications/Signal.app"
+        "/Applications/Nix\ Apps/Spotify.app"
+        "/Applications/Nix\ Apps/Signal.app"
         "/System/Applications/Utilities/Disk Utility.app"
-        "/System/Applications/Utilities/Screen\ Sharing.app"
         "/System/Applications/Launchpad.app"
       ];
     };

@@ -40,11 +40,11 @@
       tmux
       ripgrep
       fd
+      delta
       lazydocker
       ghostscript
       tree-sitter # Layvim
       git-extras
-      spotify
       signal-desktop
       
       # JIT Python compiler

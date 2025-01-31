@@ -48,7 +48,6 @@ in
                         fzf
                         docker-compose
                         presenterm
-                        racket
                         postman
                         gimp
                         zotero
@@ -58,6 +57,7 @@ in
                         raycast
                         slack
                         localsend
+                        act
 
                         # For build linux kernel
                         gcc-arm-embedded
@@ -68,6 +68,7 @@ in
           ".ssh/config".source =  ./${share_folder}/${user}/dotfiles/ssh_config.config;
           ".config/htop/htoprc".source = ./${share_folder}/${user}/dotfiles/htoprc.config;
           ".config/ghostty/config".source = ./${share_folder}/${user}/dotfiles/ghostty.config;
+          ".config/gitui/key_bindings.ron".source = ./${share_folder}/${user}/dotfiles/gitui_key_bindings.ron;
         };
 
         stateVersion = "23.11";

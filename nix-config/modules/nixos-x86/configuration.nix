@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, lib, ghostty, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [
       ../shared/configuration.nix
@@ -18,7 +18,7 @@
   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   # x86-nixos Software
-  environment.systemPackages = pkgs.callPackage ./package.nix {};
+  environment.systemPackages = pkgs.callPackage ./package.nix { inherit inputs; };
 
   # Use Latest Support kernelPackages for ZFS linux_6_6
   # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
@@ -68,6 +68,15 @@
           # Add more paths as needed
         ];
     };
+  };
+
+  
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses; # or "gtk2" for graphical interface
+    enableSSHSupport = true;
   };
 
   programs.light.enable = true;

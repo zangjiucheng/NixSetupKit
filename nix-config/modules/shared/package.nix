@@ -43,6 +43,8 @@
       gh
       myxer # Modern Volume Mixer
       gparted # Partition Manager
+      gnupg # GPG Manager
+      pinentry-curses
 
       # Library Required
       zlib

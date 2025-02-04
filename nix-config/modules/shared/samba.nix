@@ -12,7 +12,7 @@
     openFirewall = true;
   };
   services.samba = {
-    enable = false;
+    enable = true;
     openFirewall = true;
 
     settings = {
@@ -38,7 +38,7 @@
         "netbios name" = "smbnix";
 
         "max protocol" = "smb2";
-        "hosts allow" = "192.168.2. 127.0.0.1 localhost";
+        "hosts allow" = "10.0.0. 192.168.2. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";

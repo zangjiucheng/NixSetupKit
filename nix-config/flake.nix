@@ -14,12 +14,13 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, nixos, ghostty, ... }@attrs: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }: {
     nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = attrs;
+      specialArgs = { inherit inputs; };
       modules = [
         ./modules/nixos-aarch64/configuration.nix
         home-manager.nixosModules.default
@@ -28,7 +29,7 @@
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = { inherit inputs; };
       modules = [
         ./modules/nixos-x86/configuration.nix
         home-manager.nixosModules.default
@@ -37,7 +38,7 @@
 
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
+      specialArgs = { inherit inputs; };
       modules = [
         ./modules/server/server-configuration.nix
         home-manager.nixosModules.default

@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 with pkgs;
 let 
   shared-packages = import ../shared/package.nix { inherit pkgs; }; 
+  zenBrowser = inputs.zen-browser.packages.${pkgs.system}.default;
 in
 shared-packages ++ [
     spotify
@@ -15,7 +16,6 @@ shared-packages ++ [
     libgcc
     chromium
     gnome-network-displays
-    quickemu
     zfs
     brightnessctl
     ddcutil
@@ -26,8 +26,16 @@ shared-packages ++ [
     libimobiledevice
     libsecret
     thunderbird
+    wechat-uos
+    zenBrowser
 
     usbutils
     udiskie
     udisks
+    
+    # QEMU
+    quickemu
+    spice-gtk
+    virt-manager
 ] 
+

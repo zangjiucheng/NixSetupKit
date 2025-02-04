@@ -123,6 +123,8 @@ in
       # ".background-image".source = ./${share_folder}/background-image/littleBoy.png;
       ".face".source = ./${share_folder}/jiucheng/face.png;
       ".ssh/config".source = ./${share_folder}/jiucheng/dotfiles/ssh_config.config;
+      ".config/gitui/key_bindings.ron".source = ./${share_folder}/jiucheng/dotfiles/gitui_key_bindings.ron;
+
       
       "bin" = {
         source = ./script;

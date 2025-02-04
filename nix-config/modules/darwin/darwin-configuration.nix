@@ -34,7 +34,6 @@
       onefetch
       vscode
       ninja
-      qemu
       virt-viewer
       freerdp3
       tmux
@@ -46,6 +45,9 @@
       tree-sitter # Layvim
       git-extras
       signal-desktop
+
+      # QEMU Require
+      qemu
       
       # JIT Python compiler
       # clang_18

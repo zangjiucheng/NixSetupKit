@@ -32,6 +32,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./modules/nixos-x86/configuration.nix
+        ./hardware-configuration/thinkpad.nix
         home-manager.nixosModules.default
       ];
     };

@@ -27,8 +27,6 @@
     efiSupport = true;
     useOSProber = true;
   };
-  boot.kernelParams = [ "mitigations=off" ];
-
   
   boot.supportedFilesystems = [ "zfs" "ntfs" "ext4" ];
 
@@ -88,7 +86,7 @@
 
   # Avoid touchpad click to tap (clickpad) bug. For more detail see:
   # https://wiki.archlinux.org/title/Touchpad_Synaptics#Touchpad_does_not_work_after_resuming_from_hibernate/suspend
-  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
+  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" "mitigations=off" ];
 
   environment.systemPackages = pkgs.callPackage ./package.nix {};
 

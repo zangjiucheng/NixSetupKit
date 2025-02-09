@@ -11,8 +11,24 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use grub
+  boot.loader.timeout = 1;
+  boot.loader.efi = {
+    canTouchEfiVariables = false;
+    efiSysMountPoint = "/boot/efi";
+  };
+  boot.loader.grub = {
+    enable = true;
+    efiInstallAsRemovable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+  };
+  boot.kernelParams = [ "mitigations=off" ];
+
   
   boot.supportedFilesystems = [ "zfs" "ntfs" "ext4" ];
 

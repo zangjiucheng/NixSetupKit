@@ -10,7 +10,7 @@
         "/Applications/Nix\ Apps/NetNewsWire.app"
         "/System/Applications/Calendar.app"
         "/Applications/Nix\ Apps/Visual\ Studio\ Code.app"
-        "/Applications/Arc.app"
+        "/Applications/Zen Browser.app"
         "/Applications/Spotify.app"
         "/Applications/Nix\ Apps/Signal.app"
         "/System/Applications/Utilities/Disk Utility.app"

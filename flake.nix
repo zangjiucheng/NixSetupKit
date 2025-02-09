@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-24.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos.url = "nixpkgs/24.11-beta";
     home-manager = {
-      url = github:nix-community/home-manager/release-24.11;
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };  
     ghostty = {
@@ -42,6 +42,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./modules/server/server-configuration.nix
+        ./hardware-configuration/thinkpad.nix
         home-manager.nixosModules.default
       ];
     };

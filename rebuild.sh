@@ -1,5 +1,5 @@
 #!/bin/sh
-# set -eu
+set -eu
 
 NIXOSCONFIG="${1:-nixos}"
 GITBRANCH="${2:-build}"

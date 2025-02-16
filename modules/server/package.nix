@@ -15,7 +15,7 @@
       samba
       gitui
       gcc
-      nodejs_22
+      # nodejs_22
       zsh
       fzf
       bat

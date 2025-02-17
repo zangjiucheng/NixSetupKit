@@ -17,6 +17,7 @@
         "/System/Applications/Launchpad.app"
       ];
     };
+    ".GlobalPreferences"."com.apple.mouse.scaling" = 2.0;
     #finder.AppleShowAllExtensions = true;
     #finder.FXPreferredViewStyle = "clmv";
     loginwindow.LoginwindowText = "Hello World :)";

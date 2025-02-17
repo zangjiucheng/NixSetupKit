@@ -33,7 +33,9 @@ shared-packages ++ [
     udiskie
     udisks
 
-    libgccjit
+    gcc
+    glibc
+    binutils
     cmake
     
     # QEMU

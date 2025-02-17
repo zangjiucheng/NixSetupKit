@@ -32,6 +32,9 @@ shared-packages ++ [
     usbutils
     udiskie
     udisks
+
+    libgccjit
+    cmake
     
     # QEMU
     quickemu

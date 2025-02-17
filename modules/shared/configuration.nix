@@ -15,10 +15,10 @@
   
   # Use grub
   boot.loader.timeout = 1;
-  boot.loader.efi = {
-    canTouchEfiVariables = false;
-    efiSysMountPoint = "/boot/efi";
-  };
+  # boot.loader.efi = {
+  #   canTouchEfiVariables = false;
+  #   efiSysMountPoint = "/boot/efi";
+  # };
   boot.loader.grub = {
     enable = true;
     efiInstallAsRemovable = true;

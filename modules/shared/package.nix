@@ -17,7 +17,7 @@
       samba
       gitui
       gcc
-      nodejs_22
+      nodejs_23
       zsh
       thefuck
       fzf

@@ -65,6 +65,7 @@ in
 
         file = {
           ".zshrc".source = dotfiles/zshrc.config;
+          "cleanmac.sh".source = dotfiles/cleanmac.sh;
           ".ssh/config".source =  ./${share_folder}/${user}/dotfiles/ssh_config.config;
           ".config/htop/htoprc".source = ./${share_folder}/${user}/dotfiles/htoprc.config;
           ".config/ghostty/config".source = ./${share_folder}/${user}/dotfiles/ghostty.config;

@@ -26,6 +26,8 @@
       bat
       zsh
       gitui
+      git-filter-repo
+      devbox
       graphviz
       pipx
       vscode
@@ -45,6 +47,7 @@
       tree-sitter # Layvim
       git-extras
       signal-desktop
+      coreutils
 
       # QEMU Require
       qemu

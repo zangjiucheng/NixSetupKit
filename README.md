@@ -2,6 +2,13 @@
 
 NixSetupKit is a Nix-configured reproducible system design framework tailored for both macOS (Darwin) and NixOS. It enables users to set up a consistent and reproducible development environment across different systems.
 
+## ⚠️ Notice
+
+> **⚠️ This project is no longer actively maintained.**  
+> Due to sensitive and personal system configurations, **NixSetupKit is archived and not updated anymore**.  
+>  
+> If you're interested in learning more or adapting it for your own setup, feel free to [email me](mailto:jiucheng.zang@proton.me).
+
 ## System Setup Details
 
 ### NixOS Setup
